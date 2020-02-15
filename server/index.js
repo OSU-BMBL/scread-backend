@@ -9,7 +9,7 @@ dotenv.config()
 
 const app = new Koa()
 
-let port = process.env.PORT | 8889
+let port = process.env.PORT
 
 app.use(async (ctx) => {
   ctx.body = 'Hello World'

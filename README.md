@@ -2,9 +2,11 @@ koa-demo
 
 ## Install
 
-`git clone git@github.com:Wang-Cankun/koa-demo.git`
-
-`npm install`
+```
+git clone git@github.com:Wang-Cankun/koa-demo.git
+cd koa-demo
+npm install
+```
 
 ### Add configuration file
 
@@ -13,6 +15,7 @@ create a `.env` file and set the koa.js port, database username & password:
 ```env
 DB_USER=XXXX
 DB_PASSWORD=YYYY
+PORT=8889
 ```
 
 Use `Sequelize` to connect out MYSQL database, first export MYSQL table structure using [`sequelize-auto`](https://github.com/sequelize/sequelize-auto)
