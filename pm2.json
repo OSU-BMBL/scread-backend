@@ -1,0 +1,14 @@
+{
+  "apps": [
+    {
+      "name": "koa-demo-production",
+      "script": "main.js",
+      "watch": ["server", ".server/index.js", "public", ".env"],
+      "ignore_watch": ["node_modules"],
+      "log_date_format": "YYYY-MM=DD HH:mm:ss",
+      "env": {
+        "PORT": 8890
+      }
+    }
+  ]
+}
