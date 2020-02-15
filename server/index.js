@@ -16,5 +16,5 @@ app.use(async (ctx) => {
 })
 consola.log(port)
 export default app.listen(port, () => {
-  consola.success(`Koa is listening in ${port}`)
+  consola.success(`Koa is listening in port: ${port}`)
 })
