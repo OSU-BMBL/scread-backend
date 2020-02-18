@@ -15,6 +15,7 @@ create a `.env` file and set the koa.js port, database username & password:
 ```env
 DB_USER=XXXX
 DB_PASSWORD=YYYY
+DB_URL=ZZZZ
 PORT=8889
 ```
 
