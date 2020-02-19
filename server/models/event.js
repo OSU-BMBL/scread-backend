@@ -1,5 +1,5 @@
 import db from '../config/db.js'
-const eventModel = '../schema/event.js'
+const eventModel = '../schema/matrix.js'
 const EventDb = db.Todolist
 
 // use sequelize to import table structure
@@ -10,7 +10,7 @@ const getEventById = async function(id) {
   const eventInfo = await Event.findOne({
     // use await control async process, return data from Promise object
     where: {
-      user_id: id
+      base_id: id
     }
   })
 
