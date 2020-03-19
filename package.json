@@ -11,6 +11,7 @@
   "keywords": [],
   "author": "Cankun Wang",
   "dependencies": {
+    "@koa/cors": "^2.2.3",
     "add": "^2.0.6",
     "consola": "^2.11.3",
     "core-js": "^3.6.4",

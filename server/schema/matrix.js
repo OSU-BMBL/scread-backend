@@ -14,8 +14,24 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.CHAR(50),
         allowNull: true
       },
-      collection: {
+      data_id: {
         type: DataTypes.CHAR(50),
+        allowNull: true
+      },
+      tf_name: {
+        type: DataTypes.STRING(255),
+        allowNull: true
+      },
+      tf_class: {
+        type: DataTypes.STRING(255),
+        allowNull: true
+      },
+      tf_family: {
+        type: DataTypes.STRING(255),
+        allowNull: true
+      },
+      collection: {
+        type: DataTypes.STRING(50),
         allowNull: true
       },
       version: {
@@ -23,40 +39,66 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: true
       },
       motif_type: {
-        type: DataTypes.CHAR(50),
+        type: DataTypes.STRING(50),
         allowNull: true
       },
-      motif_name: {
-        type: DataTypes.CHAR(50),
+      tf_name_jaspar: {
+        type: DataTypes.STRING(50),
         allowNull: true
       },
-      ensembl: {
-        type: DataTypes.CHAR(50),
+      ensembl_jaspar: {
+        type: DataTypes.STRING(50),
         allowNull: true
       },
-      entrez: {
-        type: DataTypes.CHAR(50),
+      entrez_jaspar: {
+        type: DataTypes.STRING(50),
         allowNull: true
       },
-      uniprot: {
-        type: DataTypes.CHAR(50),
+      uniprot_jaspar: {
+        type: DataTypes.STRING(50),
         allowNull: true
       },
-      class: {
-        type: DataTypes.CHAR(50),
+      tf_name_hocomoco: {
+        type: DataTypes.STRING(50),
         allowNull: true
       },
-      family: {
-        type: DataTypes.CHAR(50),
+      ensembl_hocomoco: {
+        type: DataTypes.STRING(50),
         allowNull: true
       },
-      tf_name: {
-        type: DataTypes.CHAR(50),
+      entrez_hocomoco: {
+        type: DataTypes.STRING(50),
         allowNull: true
       },
-      dataset_id: {
-        type: DataTypes.CHAR(50),
+      uniprot_hocomoco: {
+        type: DataTypes.STRING(50),
         allowNull: true
+      },
+      tf_name_transfac: {
+        type: DataTypes.STRING(50),
+        allowNull: true
+      },
+      ensembl_transfac: {
+        type: DataTypes.STRING(50),
+        allowNull: true
+      },
+      entrez_transfac: {
+        type: DataTypes.STRING(50),
+        allowNull: true
+      },
+      uniprot_transfac: {
+        type: DataTypes.STRING(50),
+        allowNull: true
+      },
+      create_time: {
+        type: DataTypes.DATE,
+        allowNull: true,
+        defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
+      },
+      update_time: {
+        type: DataTypes.DATE,
+        allowNull: true,
+        defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
       }
     },
     {

@@ -3,9 +3,10 @@
 import Sequelize from 'sequelize'
 import dotenv from 'dotenv'
 dotenv.config()
-const Todolist = new Sequelize(
+console.log(process.env.DB_URL)
+const desso = new Sequelize(
   `mysql://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env
-    .DB_URL || 'localhost'}/todolist`,
+    .DB_URL || 'localhost'}/desso`,
   {
     define: {
       timestamps: false // 取消Sequelzie自动给数据表加入时间戳（createdAt以及updatedAt）
@@ -14,5 +15,5 @@ const Todolist = new Sequelize(
 )
 
 export default {
-  Todolist // 将Todolist暴露出接口方便Model调用
+  desso // 将Todolist暴露出接口方便Model调用
 }

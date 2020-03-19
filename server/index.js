@@ -2,7 +2,8 @@
 import dotenv from 'dotenv'
 import Koa from 'koa'
 import koaRouter from 'koa-router'
-import api from './routes/event.js'
+import Cors from '@koa/cors'
+import api from './routes/motif.js'
 //import path from 'path'
 import consola from 'consola'
 
@@ -25,6 +26,7 @@ app.on('error', function(err, ctx) {
 })
 
 router.use('/api', api.routes())
+app.use(Cors())
 app.use(router.routes())
 
 export default app.listen(port, () => {
