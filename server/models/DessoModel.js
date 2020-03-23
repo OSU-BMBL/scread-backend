@@ -1,7 +1,7 @@
 import db from '../config/db.js'
-const datasetModel = '../schema/dataset.js'
-const bindingSitesModel = '../schema/tfbs_data.js'
-const frequencyMatrixModel = '../schema/matrix_data.js'
+const datasetModel = '../schema/Desso/dataset.js'
+const bindingSitesModel = '../schema/Desso/tfbs_data.js'
+const frequencyMatrixModel = '../schema/Desso/matrix_data.js'
 const DessoDb = db.desso
 
 // use sequelize to import table structure

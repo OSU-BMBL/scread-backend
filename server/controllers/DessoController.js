@@ -1,4 +1,4 @@
-import motif from '../models/motif.js'
+import motif from '../models/DessoModel.js'
 
 const getDatasetInfo = async function(ctx) {
   const id = ctx.params.id // get id from context url
@@ -15,6 +15,11 @@ const listDatasetInfo = async function(ctx) {
 const getBindingSitesInfo = async function(ctx) {
   const id = ctx.params.id
   const result = await motif.getBindingSitesById(id)
+  if (ctx.request.query.format) {
+    // todo: return data by format
+    // http://localhost:8889/api/desso/sites/DE00000101?format=jaspar
+    console.log(ctx.request.query.format)
+  }
   ctx.body = result
 }
 
