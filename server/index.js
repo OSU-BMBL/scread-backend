@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 import Koa from 'koa'
 import koaRouter from 'koa-router'
 import Cors from '@koa/cors'
-import api from './routes/DessoRoute.js'
+import DessoRoute from './routes/DessoRoute.js'
 //import path from 'path'
 import consola from 'consola'
 
@@ -25,7 +25,7 @@ app.on('error', function(err, ctx) {
   console.log('server error', err)
 })
 
-router.use('/api', api.routes())
+router.use('/api/desso', DessoRoute.routes())
 app.use(Cors())
 app.use(router.routes())
 
