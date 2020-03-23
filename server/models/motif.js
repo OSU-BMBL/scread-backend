@@ -1,44 +1,52 @@
 import db from '../config/db.js'
-const motifModel = '../schema/matrix.js'
-const tfbsModel = '../schema/tfbs_data.js'
-const MotifDb = db.desso
+const datasetModel = '../schema/dataset.js'
+const bindingSitesModel = '../schema/tfbs_data.js'
+const frequencyMatrixModel = '../schema/matrix_data.js'
+const DessoDb = db.desso
 
 // use sequelize to import table structure
-const Motif = MotifDb.import(motifModel)
-const Tfbs = MotifDb.import(tfbsModel)
+const Dataset = DessoDb.import(datasetModel)
+const BindingSites = DessoDb.import(bindingSitesModel)
+const FrequencyMatrix = DessoDb.import(frequencyMatrixModel)
 
-const getMotifById = async function(id) {
+const getDatasetById = async function(id) {
   // note is is async function and async statement
-  const motifInfo = await Motif.findAll({
+  const datasetInfo = await Dataset.findAll({
     // use await control async process, return data from Promise object
     where: {
       data_id: id
     }
   })
-
-  return motifInfo // return data
+  return datasetInfo // return data
 }
 
-const getMotifs = async function() {
-  // note is is async function and async statement
-  const motifInfo = await Motif.findAll()
-
-  return motifInfo // return data
+const getDatasets = async function() {
+  const allInfo = await Dataset.findAll()
+  return allInfo
 }
 
-const getMotifDetails = async function(id) {
-  const motifDetails = await Tfbs.findAll({
-    // use await control async process, return data from Promise object
+const getBindingSitesById = async function(id) {
+  const bingdingSites = await BindingSites.findAll({
     where: {
       base_id: id
     }
   })
-
-  return motifDetails // return data
+  return bingdingSites
 }
+
+const getFrequencyMatrixById = async function(id) {
+  const frequencyMatrix = await FrequencyMatrix.findAll({
+    where: {
+      base_id: id
+    }
+  })
+  return frequencyMatrix // return data
+}
+
 export default {
   // will used in controller
-  getMotifById,
-  getMotifs,
-  getMotifDetails
+  getDatasetById,
+  getDatasets,
+  getBindingSitesById,
+  getFrequencyMatrixById
 }

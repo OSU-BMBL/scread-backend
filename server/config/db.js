@@ -9,11 +9,11 @@ const desso = new Sequelize(
     .DB_URL || 'localhost'}/desso`,
   {
     define: {
-      timestamps: false // 取消Sequelzie自动给数据表加入时间戳（createdAt以及updatedAt）
+      timestamps: false //stop auto adding timestamp to database
     }
   }
 )
 
 export default {
-  desso // 将Todolist暴露出接口方便Model调用
+  desso // export database api to Model
 }

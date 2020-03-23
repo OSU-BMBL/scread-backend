@@ -41,16 +41,6 @@ module.exports = function(sequelize, DataTypes) {
       distance_near_gene: {
         type: DataTypes.STRING(50),
         allowNull: true
-      },
-      create_time: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
-      },
-      update_time: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
       }
     },
     {

@@ -2,7 +2,7 @@
 
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define(
-    'matrix',
+    'dataset',
     {
       id: {
         type: DataTypes.INTEGER(11),
@@ -102,7 +102,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     {
-      tableName: 'matrix'
+      tableName: 'dataset'
     }
   )
 }

@@ -1,26 +1,33 @@
 import motif from '../models/motif.js'
 
-const getMotifInfoById = async function(ctx) {
-  const id = ctx.params.id // 获取url里传过来的参数里的id
-  const result = await motif.getMotifById(id) // 通过await “同步”地返回查询结果
-  ctx.body = result // 将请求的结果放到response的body里返回
+const getDatasetInfo = async function(ctx) {
+  const id = ctx.params.id // get id from context url
+  const result = await motif.getDatasetById(id) // return query results using await function instead of a promise
+  ctx.body = result // store result in context body part
 }
 
-const getMotifsInfo = async function(ctx) {
-  const id = ctx.params.id // 获取url里传过来的参数里的id
-  const result = await motif.getMotifs() // 通过await “同步”地返回查询结果
-  ctx.body = result // 将请求的结果放到response的body里返回
+const listDatasetInfo = async function(ctx) {
+  const id = ctx.params.id
+  const result = await motif.getDatasets()
+  ctx.body = result
 }
 
-const getTfbsById = async function(ctx) {
-  const id = ctx.params.id // 获取url里传过来的参数里的id
-  const result = await motif.getMotifDetails(id) // 通过await “同步”地返回查询结果
-  ctx.body = result // 将请求的结果放到response的body里返回
+const getBindingSitesInfo = async function(ctx) {
+  const id = ctx.params.id
+  const result = await motif.getBindingSitesById(id)
+  ctx.body = result
 }
 
+const getFrequncyMatrixInfo = async function(ctx) {
+  const id = ctx.params.id
+  const result = await motif.getFrequencyMatrixById(id)
+  ctx.body = result
+}
+
+// export methods and use in router
 export default {
-  getMotifInfoById,
-  getMotifsInfo,
-  getTfbsById
-  // 导出getMotifInfo的方法，将会在controller里调用
+  getDatasetInfo,
+  listDatasetInfo,
+  getBindingSitesInfo,
+  getFrequncyMatrixInfo
 }
