@@ -2,12 +2,14 @@ import db from '../config/db.js'
 const datasetModel = '../schema/Desso/dataset.js'
 const bindingSitesModel = '../schema/Desso/tfbs_data.js'
 const frequencyMatrixModel = '../schema/Desso/matrix_data.js'
+const otherInfoModel = '../schema/Desso/dataset_info.js'
 const DessoDb = db.desso
 
 // use sequelize to import table structure
 const Dataset = DessoDb.import(datasetModel)
 const BindingSites = DessoDb.import(bindingSitesModel)
 const FrequencyMatrix = DessoDb.import(frequencyMatrixModel)
+const OtherInfo = DessoDb.import(otherInfoModel)
 
 const getDatasetById = async function(id) {
   // note is is async function and async statement
@@ -43,10 +45,20 @@ const getFrequencyMatrixById = async function(id) {
   return frequencyMatrix // return data
 }
 
+const getOtherInfoById = async function(id) {
+  const otherInfo = await OtherInfo.findAll({
+    where: {
+      dataset_id: id
+    }
+  })
+  return otherInfo // return data
+}
+
 export default {
   // will used in controller
   getDatasetById,
   getDatasets,
   getBindingSitesById,
-  getFrequencyMatrixById
+  getFrequencyMatrixById,
+  getOtherInfoById
 }

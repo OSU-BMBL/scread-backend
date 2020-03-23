@@ -21,16 +21,6 @@ module.exports = function(sequelize, DataTypes) {
       value: {
         type: DataTypes.STRING(10000),
         allowNull: true
-      },
-      create_time: {
-        type: DataTypes.DATE,
-        allowNull: true,
-        defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
-      },
-      update_time: {
-        type: DataTypes.DATE,
-        allowNull: true,
-        defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
       }
     },
     {

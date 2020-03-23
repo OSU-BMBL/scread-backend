@@ -29,10 +29,17 @@ const getFrequncyMatrixInfo = async function(ctx) {
   ctx.body = result
 }
 
+const getOtherInfo = async function(ctx) {
+  const id = ctx.params.id
+  const result = await motif.getOtherInfoById(id)
+  ctx.body = result
+}
+
 // export methods and use in router
 export default {
   getDatasetInfo,
   listDatasetInfo,
   getBindingSitesInfo,
-  getFrequncyMatrixInfo
+  getFrequncyMatrixInfo,
+  getOtherInfo
 }
