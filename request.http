@@ -1,0 +1,16 @@
+### // List Dataset table
+GET http://localhost:8889/api/desso/info
+### // Get dataset and its logo by dataset ID
+GET http://localhost:8889/api/desso/info/DE000001
+### // Get dataset annotation information by ID
+GET http://localhost:8889/api/desso/info/DE000001/annotation
+### // Get Binding sites by logo ID
+GET http://localhost:8889/api/desso/sites/DE00000101?format=jaspar
+### // Get Position frequency matrix table (TFBS) by logo ID
+GET http://localhost:8889/api/desso/matrix/DE00000101
+
+
+### // Test API
+POST https://httpbin.org/post
+
+
