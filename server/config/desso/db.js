@@ -1,8 +1,8 @@
-// First step: enter ./server run command sequelize-auto -o "./schema" -d events -h 127.0.0.1 -u root -p 3306 -x YOUR_PASSWORD -e mysql
-//DB_USER=root
-//DB_URL=127.0.0.1
-//DB_PASSWORD=~Aa19950620
-//PORT=8889
+// First step: enter ./server run command sequelize-auto -o "./schema/desso" -d desso -h 127.0.0.1 -u root -p 3306 -x YOUR_PASSWORD -e mysql
+// DB_USER=root
+// DB_URL=127.0.0.1
+// DB_PASSWORD=19950620
+// PORT=8889
 
 import Sequelize from 'sequelize'
 import dotenv from 'dotenv'

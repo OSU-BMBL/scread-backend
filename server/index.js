@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 import Koa from 'koa'
 import koaRouter from 'koa-router'
 import Cors from '@koa/cors'
-import DessoRoute from './routes/DessoRoute.js'
+import DessoRoute from '@server/routes/desso/router.js'
 //import path from 'path'
 import consola from 'consola'
 
