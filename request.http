@@ -9,6 +9,8 @@ GET http://localhost:8889/api/desso/sites/DE00000101?format=jaspar
 ### // Get Position frequency matrix table (TFBS) by logo ID
 GET http://localhost:8889/api/desso/matrix/DE00000101
 
+### GraphQL
+GET http://localhost:8889/graphql?query={hello}
 
 ### // Test API
 POST https://httpbin.org/post
