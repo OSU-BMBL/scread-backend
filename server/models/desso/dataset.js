@@ -1,11 +1,11 @@
 import db from '@server/config/desso/db.js'
 // the schema directory can only access from ../../
-const datasetModel = '../../schema/desso/dataset.js'
+const datasetSchema = '../../schema/desso/dataset.js'
 
 const DessoDb = db.desso
 
 // use sequelize to import table structure
-const Dataset = DessoDb.import(datasetModel)
+const Dataset = DessoDb.import(datasetSchema)
 const getDatasetById = async function(id) {
   // note is is async function and async statement
   const datasetInfo = await Dataset.findAll({

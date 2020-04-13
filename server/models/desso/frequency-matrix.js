@@ -1,11 +1,11 @@
 import db from '@server/config/desso/db.js'
 // the schema directory can only access from ../../
-const frequencyMatrixModel = '../../schema/desso/matrix_data.js'
+const frequencyMatrixSchema = '../../schema/desso/matrix_data.js'
 
 const DessoDb = db.desso
 
 // use sequelize to import table structure
-const FrequencyMatrix = DessoDb.import(frequencyMatrixModel)
+const FrequencyMatrix = DessoDb.import(frequencyMatrixSchema)
 
 const getFrequencyMatrixById = async function(id) {
   const frequencyMatrix = await FrequencyMatrix.findAll({

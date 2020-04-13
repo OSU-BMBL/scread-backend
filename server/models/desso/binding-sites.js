@@ -1,11 +1,11 @@
 import db from '@server/config/desso/db.js'
 // the schema directory can only access from ../../
-const bindingSitesModel = '../../schema/desso/tfbs_data.js'
+const bindingSitesSchema = '../../schema/desso/tfbs_data.js'
 
 const DessoDb = db.desso
 
 // use sequelize to import table structure
-const BindingSites = DessoDb.import(bindingSitesModel)
+const BindingSites = DessoDb.import(bindingSitesSchema)
 
 const getBindingSitesById = async function(id) {
   const bingdingSites = await BindingSites.findAll({
