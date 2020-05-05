@@ -6,7 +6,7 @@ module.exports = {
       port: 9001,
       watch: ['server', '.server/index.js', 'public', '.env'],
       args: 'start',
-      max_memory_restart: '250M',
+      max_memory_restart: '60G',
       ignore_watch: ['node_modules'],
       log_date_format: 'YYYY-MM=DD HH:mm:ss',
       env: {
