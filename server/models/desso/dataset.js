@@ -12,7 +12,8 @@ const getDatasetById = async function(id) {
     // use await control async process, return data from Promise object
     where: {
       data_id: id
-    }
+    },
+    order: DessoDb.col('base_id')
   })
   return datasetInfo // return data
 }
