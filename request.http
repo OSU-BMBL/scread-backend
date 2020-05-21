@@ -16,3 +16,5 @@ GET http://localhost:8889/graphql?query={hello}
 POST https://httpbin.org/post
 
 
+### // Get Position frequency matrix table (TFBS) by logo ID
+GET http://localhost:8889/api/scread/de/AD00101
