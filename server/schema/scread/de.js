@@ -38,7 +38,11 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING(50),
         allowNull: true
       },
-      data_id: {
+      a_data_id: {
+        type: DataTypes.CHAR(50),
+        allowNull: true
+      },
+      b_data_id: {
         type: DataTypes.CHAR(50),
         allowNull: true
       },

@@ -1,0 +1,31 @@
+kubectl apply -f skaffold.yaml
+kubectl expose deployment api-server-koajs --port=8889 --type=NodePort
+kubectl apply -f .\ingress.yaml
+kubectl get ingress
+
+alias docker-compose="TMPDIR=/var/www/html/downloadFiles/Rtmp docker-compose"
+
+
+k3d create --server-arg "--no-deploy=traefik" \
+--workers=2 \
+--publish="9001:9001" 
+kubectl port-forward -n kube-system $(kubectl get pods  --output=name -n kube-system | grep 'traefik') --address 10.82.14.183 9001:9001
+
+minikube start --apiserver-name=localhost --apiserver-ips=10.82.14.183 --extra-config=kubelet.node-ip=10.82.14.183
+
+kubectl delete pod -n kube-system traefik-ingress-7587bbf594-6qvrj
+
+
+kubectl get pods --all-namespaces
+kubectl get deployments --all-namespaces
+kubectl delete -n kube-system deployment traefik-ingress
+
+kubectl port-forward --address 10.82.14.183 service/traefik 9001:9001 3838:3838 -n default
+
+
+docker run -p 9002:3838 -v /srv/shinyapps/:/srv/shiny-server/ -v /srv/shinylog/:/var/log/shiny-server/ wangcankun100/iris-eda
+
+
+kubectl port-forward --address 10.82.14.183 service/iris-eda 9002:3838 -n default
+
+kubectl delete deployment iris-eda

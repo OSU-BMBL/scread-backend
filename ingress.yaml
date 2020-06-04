@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1beta1 # for versions before 1.14 use extensions/v1beta1
+kind: Ingress
+metadata:
+  name: example-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  rules:
+    - host: hello-world.info
+      http:
+        paths:
+          - path: /test1
+            pathType: Prefix
+            backend:
+              serviceName: web
+              servicePort: 3838
+          - path: /test2
+            pathType: Prefix
+            backend:
+              serviceName: web2
+              servicePort: 8080
+          - path: /api
+            pathType: Prefix
+            backend:
+              serviceName: api-server-koajs
+              servicePort: 8889

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "the api server in BMBL",
   "scripts": {
+    "preinstall": "npm i nodemon -g",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon main.js",
     "lint": "eslint --ext .js --ignore-path .gitignore .",
@@ -46,13 +47,13 @@
   "module": "_main.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Wang-Cankun/koa-demo.git"
+    "url": "git+https://github.com/Wang-Cankun/api-server-koajs.git"
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Wang-Cankun/koa-demo/issues"
+    "url": "https://github.com/Wang-Cankun/api-server-koajs/issues"
   },
-  "homepage": "https://github.com/Wang-Cankun/koa-demo#readme",
+  "homepage": "https://github.com/Wang-Cankun/api-server-koajs#readme",
   "_moduleAliases": {
     "@server": "./server"
   }

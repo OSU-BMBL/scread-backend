@@ -1,4 +1,5 @@
-// First step: enter ./server run command sequelize-auto -o "./schema/scread" -d scread -h 127.0.0.1 -u root -p 3306 -x 19950620 -e mysql
+// First step: enter ./server run command:
+// sequelize-auto -o "./schema/scread" -d scread -h 127.0.0.1 -u cankun -p 3306 -x 19950620 -e mysql
 // DB_USER=root
 // DB_URL=127.0.0.1
 // DB_PASSWORD=19950620

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-server-koajs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-server-koajs
+  template:
+    metadata:
+      labels:
+        app: api-server-koajs
+    spec:
+      containers:
+        - name: api-server-koajs
+          image: wangcankun100/api-server-koajs
+          ports:
+            - containerPort: 8889
+          imagePullPolicy: Always
