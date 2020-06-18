@@ -9,7 +9,7 @@ GET http://localhost:8889/api/desso/sites/DE00000101?format=jaspar
 ### // Get Position frequency matrix table (TFBS) by logo ID
 GET http://localhost:8889/api/desso/matrix/DE00000101
 
-### GraphQL
+### Test GraphQL
 GET http://localhost:8889/graphql?query={hello}
 
 ### // Test API
@@ -29,7 +29,6 @@ GET http://localhost:8889/api/scread/expression/MIR1302-10
 GET http://localhost:8889/api/scread/regulon/AD00102
 
 
-
 ### // Get all dataset info
 GET http://localhost:8889/api/scread/dataset
 
@@ -38,3 +37,6 @@ GET http://localhost:8889/api/scread/dataset/AD00102
 
 ### // Get dataset info by ID
 GET http://localhost:8889/api/scread/dimension/AD00102
+
+### // Get publication/paper info by ID
+GET http://localhost:8889/api/scread/publication/AD00101
