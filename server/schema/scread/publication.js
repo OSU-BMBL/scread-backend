@@ -2,7 +2,7 @@
 
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define(
-    'de_meta',
+    'publication',
     {
       id: {
         type: DataTypes.INTEGER(11),
@@ -11,32 +11,48 @@ module.exports = function(sequelize, DataTypes) {
         autoIncrement: true
       },
       data_id: {
-        type: DataTypes.CHAR(50),
-        allowNull: true
-      },
-      b_data_id: {
-        type: DataTypes.CHAR(50),
-        allowNull: true
-      },
-      short_ct: {
         type: DataTypes.STRING(50),
         allowNull: true
       },
-      full_ct: {
+      public_id: {
         type: DataTypes.STRING(50),
         allowNull: true
       },
-      type: {
+      pmid: {
         type: DataTypes.STRING(50),
         allowNull: true
       },
-      comparison_text: {
+      protocol: {
         type: DataTypes.STRING(50),
+        allowNull: true
+      },
+      methodology: {
+        type: DataTypes.STRING(50),
+        allowNull: true
+      },
+      title: {
+        type: DataTypes.STRING(512),
+        allowNull: true
+      },
+      author: {
+        type: DataTypes.STRING(512),
+        allowNull: true
+      },
+      citation: {
+        type: DataTypes.STRING(512),
+        allowNull: true
+      },
+      abstract: {
+        type: DataTypes.TEXT,
+        allowNull: true
+      },
+      doi: {
+        type: DataTypes.STRING(100),
         allowNull: true
       }
     },
     {
-      tableName: 'de_meta'
+      tableName: 'publication'
     }
   )
 }
