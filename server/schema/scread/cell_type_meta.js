@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('de_meta', {
+  return sequelize.define('cell_type_meta', {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
@@ -9,26 +9,14 @@ module.exports = function(sequelize, DataTypes) {
       autoIncrement: true
     },
     data_id: {
-      type: DataTypes.CHAR(50),
-      allowNull: true
-    },
-    b_data_id: {
-      type: DataTypes.CHAR(50),
-      allowNull: true
-    },
-    description: {
       type: DataTypes.STRING(50),
       allowNull: true
     },
-    hint: {
-      type: DataTypes.STRING(100),
-      allowNull: true
-    },
-    value: {
+    cell_type: {
       type: DataTypes.STRING(50),
       allowNull: true
     }
   }, {
-    tableName: 'de_meta'
+    tableName: 'cell_type_meta'
   });
 };

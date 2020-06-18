@@ -35,8 +35,28 @@ GET http://localhost:8889/api/scread/dataset
 ### // Get dataset info by ID
 GET http://localhost:8889/api/scread/dataset/AD00102
 
-### // Get dataset info by ID
-GET http://localhost:8889/api/scread/dimension/AD00102
+### // Get all UMAP info by ID
+GET http://localhost:8889/api/scread/dimension/AD00103/type/all
 
-### // Get publication/paper info by ID
-GET http://localhost:8889/api/scread/publication/AD00101
+
+### // Get subcluster UMAP info by ID
+GET http://localhost:8889/api/scread/dimension/AD00103/type/subcluster
+
+### // Get all cell types by ID
+GET http://localhost:8889/api/scread/celltype/AD00103/
+
+
+### // 
+GET http://localhost:8889/api/scread/de/AD00103?second_id=0&ct=Astrocytes&type=subcluster
+
+
+### // 
+GET http://localhost:8889/api/scread/de/AD00103?second_id=AD00103&ct=Endothelial%20cells&type=cell_type_specific
+
+
+### // 
+GET http://localhost:8889/api/scread/de/AD00106?second_id=AD00103&ct=Astrocytes&type=a_vs_b
+
+
+### // 
+GET http://localhost:8889/api/scread/expression_genes/AD00103

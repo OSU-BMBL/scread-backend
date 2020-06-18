@@ -23,8 +23,18 @@ const getDataset = async function(id) {
   return allDataset
 }
 
+const getExperiment = async function(id) {
+  const allDataset = await dataset.findAll({
+    where: {
+      data_id: id
+    }
+  })
+  return allDataset
+}
+
 export default {
   // will used in controller
   getDataset,
-  getDatasets
+  getDatasets,
+  getExperiment
 }

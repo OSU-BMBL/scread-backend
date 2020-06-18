@@ -6,6 +6,7 @@ const screadDb = db.scread
 
 // use sequelize to import table structure
 const expression = screadDb.import(schema)
+
 const getExprById = async function(id) {
   // note is is async function and async statement
   const result = await expression.findAll({
@@ -19,7 +20,21 @@ const getExprById = async function(id) {
   return result // return data
 }
 
+const getExprGenes = async function(id) {
+  // note is is async function and async statement
+  const result = await expression.findAll({
+    // use await control async process, return data from Promise object
+    where: {
+      data_id: id
+    },
+    attributes: ['gene'],
+    limit: 10000
+  })
+  return result // return data
+}
+
 export default {
   // will used in controller
-  getExprById
+  getExprById,
+  getExprGenes
 }
