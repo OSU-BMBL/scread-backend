@@ -59,6 +59,14 @@ module.exports = function(sequelize, DataTypes) {
     n_cluster: {
       type: DataTypes.INTEGER(11),
       allowNull: true
+    },
+    iris3_jobid: {
+      type: DataTypes.STRING(50),
+      allowNull: true
+    },
+    silhouette_score: {
+      type: "DOUBLE",
+      allowNull: true
     }
   }, {
     tableName: 'dataset'
