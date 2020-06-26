@@ -65,7 +65,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     silhouette_score: {
-      type: "DOUBLE",
+      type: DataTypes.STRING(50),
+      allowNull: true
+    },
+    ari_score: {
+      type: DataTypes.STRING(50),
       allowNull: true
     }
   }, {

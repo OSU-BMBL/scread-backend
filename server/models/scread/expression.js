@@ -14,8 +14,7 @@ const getExprById = async function(id) {
     where: {
       gene: id
     },
-    attributes: ['expression'],
-    limit: 10000
+    attributes: ['expression', 'cell_name']
   })
   return result // return data
 }
@@ -28,7 +27,7 @@ const getExprGenes = async function(id) {
       data_id: id
     },
     attributes: ['gene'],
-    limit: 10000
+    group: ['gene']
   })
   return result // return data
 }

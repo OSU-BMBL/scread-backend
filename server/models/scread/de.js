@@ -23,6 +23,7 @@ const getDeTableById = async function(id, other) {
     limit: 5000,
     order: screadDb.col('p_val_adj')
   })
+
   return result // return data
 }
 

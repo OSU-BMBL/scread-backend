@@ -21,7 +21,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     expression: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.FLOAT,
       allowNull: true
     }
   }, {

@@ -35,6 +35,9 @@ GET http://localhost:8889/api/scread/dataset
 ### // Get dataset info by ID
 GET http://localhost:8889/api/scread/dataset/AD00102
 
+### // Get dataset info by ID
+GET http://localhost:8889/api/scread/dataset/AD00102
+
 ### // Get all UMAP info by ID
 GET http://localhost:8889/api/scread/dimension/AD00103/type/all
 
@@ -60,3 +63,6 @@ GET http://localhost:8889/api/scread/de/AD00106?second_id=AD00103&ct=Astrocytes&
 
 ### // 
 GET http://localhost:8889/api/scread/expression_genes/AD00103
+
+### // 
+POST http://localhost:8889/api/scread/upload

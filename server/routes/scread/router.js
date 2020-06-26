@@ -5,6 +5,7 @@ import expression from '@server/controllers/scread/expression.js'
 import iris3 from '@server/controllers/scread/iris3.js'
 import publication from '@server/controllers/scread/publication.js'
 import cellType from '@server/controllers/scread/cellType.js'
+import upload from '@server/controllers/scread/upload.js'
 
 import KoaRouter from 'koa-router'
 
@@ -20,5 +21,6 @@ router.get('/expression_genes/:id', expression.getExpressionGenes)
 router.get('/regulon/:id', iris3.getRegulonTable)
 router.get('/publication/:id', publication.getPublicationById)
 router.get('/celltype/:id', cellType.getCellType)
+router.post('/upload', upload.submitFiles)
 
 export default router
