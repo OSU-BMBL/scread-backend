@@ -6,10 +6,11 @@ WORKDIR /usr/src/app
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
 COPY package*.json ./
-RUN npm i nodemon -g
+RUN npm install pm2@latest -g
 RUN npm install
 # If you are building your code for production
 # RUN npm ci --only=production
 COPY . .
 EXPOSE 8889
-CMD [ "npm", "run", "dev" ]
+CMD [ "npm", "run", "serve" ]
+#CMD ["pm2-runtime", "main.js"]

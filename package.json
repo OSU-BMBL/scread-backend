@@ -5,9 +5,9 @@
   "scripts": {
     "preinstall": "npm i nodemon -g",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --ignore upload/ main.js ",
+    "dev": "nodemon --ignore upload/ --ignore data/ main.js",
     "lint": "eslint --ext .js --ignore-path .gitignore .",
-    "serve": "cross-env NODE_ENV=production PORT=9001 pm2 start pm2.json --watch"
+    "serve": "cross-env NODE_ENV=production PORT=8889 pm2-runtime start pm2.json --watch"
   },
   "keywords": [],
   "author": "Cankun Wang",
@@ -33,7 +33,7 @@
     "minimist": ">=0.2.1",
     "module-alias": "^2.2.2",
     "mysql2": "^2.1.0",
-    "nodemon": "^2.0.3",
+    "nthline": "^1.0.2",
     "path": "^0.12.7",
     "pm2": "^4.2.3",
     "sendmail": "^1.6.1",
@@ -41,6 +41,7 @@
     "underscore": "^1.10.2"
   },
   "devDependencies": {
+    "nodemon": "^2.0.3",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.1.0",
     "eslint-config-prettier": "^6.10.1",
