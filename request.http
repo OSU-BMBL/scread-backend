@@ -58,11 +58,15 @@ GET http://localhost:8889/api/scread/de/AD00103?second_id=AD00103&ct=Endothelial
 
 
 ### // 
-GET http://localhost:8889/api/scread/de/AD00106?second_id=AD00103&ct=Astrocytes&type=a_vs_b
+GET http://localhost:8889/api/scread/de/AD00718?second_id=0&ct=Excitatory%20neurons&type=subcluster
 
 
 ### // 
-GET http://localhost:8889/api/scread/expression_genes/AD00103
+GET http://localhost:8889/api/scread/expression_genes/AD00602
 
 ### // 
 POST http://localhost:8889/api/scread/upload
+
+
+### // 
+GET http://localhost:8889/api/scread/expression/Lrrtm4/id/AD00602
