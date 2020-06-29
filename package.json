@@ -1,38 +1,50 @@
 {
-  "name": "koa-demo",
+  "name": "api-server-koa",
   "version": "1.0.0",
-  "description": "koa-demo",
+  "description": "the api server in BMBL",
   "scripts": {
+    "preinstall": "npm i nodemon -g",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon main.js",
+    "dev": "nodemon --ignore upload/ --ignore data/ main.js",
     "lint": "eslint --ext .js --ignore-path .gitignore .",
-    "serve": "cross-env NODE_ENV=production PORT=3000 pm2 start pm2.json"
+    "serve": "cross-env NODE_ENV=production PORT=8889 pm2-runtime start pm2.json --watch"
   },
   "keywords": [],
   "author": "Cankun Wang",
   "dependencies": {
+    "@koa/cors": "^2.2.3",
+    "@koa/multer": "^3.0.0",
+    "acorn": ">=7.1.1",
     "add": "^2.0.6",
+    "apollo-server-koa": "^2.12.0",
     "consola": "^2.11.3",
-    "core-js": "^3.6.4",
-    "cross-env": "^7.0.0",
+    "core-js": "^3.6.5",
+    "cross-env": "^7.0.2",
     "debug": "^4.1.1",
     "dotenv": "^8.2.0",
     "esm": "^3.2.25",
+    "formidable": "^1.2.2",
+    "fs-extra": "^9.0.1",
+    "graphql": "^15.0.0",
     "http-errors": "^1.7.3",
     "koa": "^2.11.0",
-    "koa-bodyparser": "^4.2.1",
-    "koa-router": "^8.0.7",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^8.0.8",
+    "minimist": ">=0.2.1",
+    "module-alias": "^2.2.2",
     "mysql2": "^2.1.0",
-    "nodemon": "^2.0.2",
+    "nthline": "^1.0.2",
     "path": "^0.12.7",
     "pm2": "^4.2.3",
-    "sequelize": "^5.21.4",
-    "underscore": "^1.9.2"
+    "sendmail": "^1.6.1",
+    "sequelize": "^5.21.6",
+    "underscore": "^1.10.2"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.1",
+    "nodemon": "^2.0.3",
+    "babel-eslint": "^10.1.0",
     "eslint": "^6.1.0",
-    "eslint-config-prettier": "^6.10.0",
+    "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-prettier": "^3.1.2",
     "prettier": "^1.19.1"
   },
@@ -40,11 +52,14 @@
   "module": "_main.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Wang-Cankun/koa-demo.git"
+    "url": "git+https://github.com/Wang-Cankun/api-server-koajs.git"
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Wang-Cankun/koa-demo/issues"
+    "url": "https://github.com/Wang-Cankun/api-server-koajs/issues"
   },
-  "homepage": "https://github.com/Wang-Cankun/koa-demo#readme"
+  "homepage": "https://github.com/Wang-Cankun/api-server-koajs#readme",
+  "_moduleAliases": {
+    "@server": "./server"
+  }
 }

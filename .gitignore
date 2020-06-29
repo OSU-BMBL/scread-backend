@@ -1,6 +1,8 @@
 .DS_Store
 node_modules/
 dist/
+data/
+upload/
 npm-debug.log
 img/
 .idea/

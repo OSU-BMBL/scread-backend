@@ -2,7 +2,7 @@
 
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define(
-    'list',
+    'dataset_info',
     {
       id: {
         type: DataTypes.INTEGER(11),
@@ -10,21 +10,21 @@ module.exports = function(sequelize, DataTypes) {
         primaryKey: true,
         autoIncrement: true
       },
-      user_id: {
-        type: DataTypes.INTEGER(11),
-        allowNull: false
+      dataset_id: {
+        type: DataTypes.CHAR(50),
+        allowNull: true
       },
-      content: {
-        type: DataTypes.CHAR(255),
-        allowNull: false
+      key: {
+        type: DataTypes.STRING(10000),
+        allowNull: true
       },
-      status: {
-        type: DataTypes.INTEGER(1).UNSIGNED.ZEROFILL,
-        allowNull: false
+      value: {
+        type: DataTypes.STRING(10000),
+        allowNull: true
       }
     },
     {
-      tableName: 'list'
+      tableName: 'dataset_info'
     }
   )
 }

@@ -2,7 +2,7 @@
 
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define(
-    'user',
+    'subcluster_meta',
     {
       id: {
         type: DataTypes.INTEGER(11),
@@ -10,17 +10,13 @@ module.exports = function(sequelize, DataTypes) {
         primaryKey: true,
         autoIncrement: true
       },
-      user_name: {
-        type: DataTypes.CHAR(50),
-        allowNull: false
-      },
-      password: {
-        type: DataTypes.CHAR(128),
-        allowNull: false
+      cell_name: {
+        type: DataTypes.STRING(50),
+        allowNull: true
       }
     },
     {
-      tableName: 'user'
+      tableName: 'subcluster_meta'
     }
   )
 }

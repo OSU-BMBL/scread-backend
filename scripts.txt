@@ -1,0 +1,95 @@
+kubectl apply -f skaffold.yaml
+kubectl expose deployment api-server-koajs --port=8889 --type=NodePort
+kubectl apply -f .\ingress.yaml
+kubectl get ingress
+
+alias docker-compose="TMPDIR=/var/www/html/downloadFiles/Rtmp docker-compose"
+
+
+k3d create --server-arg "--no-deploy=traefik" \
+--workers=2 \
+--publish="9001:9001" 
+kubectl port-forward -n kube-system $(kubectl get pods  --output=name -n kube-system | grep 'traefik') --address 10.82.14.183 9001:9001
+
+minikube start --apiserver-name=localhost --apiserver-ips=10.82.14.183 --extra-config=kubelet.node-ip=10.82.14.183
+
+kubectl delete pod -n kube-system traefik-ingress-7587bbf594-6qvrj
+
+
+kubectl get pods --all-namespaces
+kubectl get deployments --all-namespaces
+kubectl delete -n kube-system deployment traefik-ingress
+
+kubectl port-forward --address 10.82.14.183 service/traefik 9001:9001 3838:3838 -n default
+
+
+docker run -p 9002:3838 -v /srv/shinyapps/:/srv/shiny-server/ -v /srv/shinylog/:/var/log/shiny-server/ wangcankun100/iris-eda
+
+
+kubectl port-forward --address 10.82.14.183 service/iris-eda 9002:9002 -n default
+
+kubectl delete deployment iris-eda
+kubectl get pod koa-5986d86dd8-8wsxr
+kubectl exec --stdin --tty koa-5986d86dd8-8wsxr -- /bin/bash
+/usr/src/app
+kubectl cp /var/www/html/downloadFiles/scread/expression/archive/* koa-5986d86dd8-8wsxr:/usr/src/app/data
+
+find * | xargs -i{} kubectl cp koa-5986d86dd8-8wsxr:/usr/src/app/data
+
+kubectl cp /var/www/html/downloadFiles/scread/expression/expr.tgz koa-5986d86dd8-8wsxr:/usr/src/app/data
+kubectl exec koa-5986d86dd8-8wsxr -- tar xzf /usr/src/app/data/expr.tgz
+
+AD00101_expr.txt
+AD00102_expr.txt
+AD00103_expr.txt
+AD00104_expr.txt
+AD00105_expr.txt
+AD00107_expr.txt
+AD00108_expr.txt
+AD00109_expr.txt
+AD00110_expr.txt
+AD00201_expr.txt
+AD00202_expr.txt
+AD00203_expr.txt
+AD00204_expr.txt
+AD00205_expr.txt
+AD00206_expr.txt
+AD00301_expr.txt
+AD00302_expr.txt
+AD00303_expr.txt
+AD00304_expr.txt
+AD00305_expr.txt
+AD00306_expr.txt
+AD00307_expr.txt
+AD00308_expr.txt
+AD00309_expr.txt
+AD00401_expr.txt
+AD00402_expr.txt
+AD00403_expr.txt
+AD00404_expr.txt
+AD00405_expr.txt
+AD00501_expr.txt
+AD00502_expr.txt
+AD00601_expr.txt
+AD00602_expr.txt
+AD00603_expr.txt
+AD00604_expr.txt
+AD00702_expr.txt
+AD00703_expr.txt
+AD00704_expr.txt
+AD00705_expr.txt
+AD00708_expr.txt
+AD00709_expr.txt
+AD00710_expr.txt
+AD00711_expr.txt
+AD00712_expr.txt
+AD00713_expr.txt
+AD00714_expr.txt
+AD00715_expr.txt
+AD00716_expr.txt
+AD00717_expr.txt
+AD00718_expr.txt
+AD00719_expr.txt
+AD00801_expr.txt
+AD00802_expr.txt
+AD00803_expr.txt

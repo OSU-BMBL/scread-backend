@@ -1,10 +1,17 @@
-koa-demo
+# api-server-koa
+
+This is the API server for [Bioinformatics and Mathematical Biosciences Lab (BMBL)](https://u.osu.edu/bmbl/). Ther server builds on top of Koa.js, MYSQL, providing REST API and GraphQL for bioinformatics web servers and databases in the lab.
+
+## Todos
+
+- Implement GraphQL
+- Add installation tutorial from loading all DESSO sql files
 
 ## Install
 
 ```
-git clone git@github.com:Wang-Cankun/koa-demo.git
-cd koa-demo
+git clone git@github.com:Wang-Cankun/api-server-koajs.git
+cd api-server-koajs
 npm install
 ```
 
@@ -19,10 +26,18 @@ DB_URL=ZZZZ
 PORT=8889
 ```
 
-Use `Sequelize` to connect out MYSQL database, first export MYSQL table structure using [`sequelize-auto`](https://github.com/sequelize/sequelize-auto)
-enter ./server folder, run the following command
+We use `Sequelize` to connect out MYSQL database, first export MYSQL table structure using [`sequelize-auto`](https://github.com/sequelize/sequelize-auto):
 
-`sequelize-auto -o "./schema" -d events -h 127.0.0.1 -u root -p 3306 -x YOUR_PASSWORD -e mysql`
+```env
+npm install -g sequelize-auto
+npm install -g mysql
+```
+
+After installed [`sequelize-auto`] and [`mysql`],enter [`./server`] folder, run the following command:
+
+```env
+sequelize-auto -o "./schema/desso" -d desso -h 127.0.0.1 -u root -p 3306 -x YOUR_PASSWORD -e mysql
+```
 
 ### Start the server
 
