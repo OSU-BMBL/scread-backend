@@ -3,7 +3,7 @@ module.exports = {
     {
       name: 'api-server-koajs',
       script: 'main.js',
-      port: 9001,
+      port: 8889,
       watch: ['server', '.server/index.js', 'public', '.env'],
       args: 'start',
       max_memory_restart: '60G',
