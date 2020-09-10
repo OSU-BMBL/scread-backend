@@ -1,9 +1,9 @@
 module.exports = {
   apps: [
     {
-      name: 'api-server-koajs',
+      name: 'scREAD backend',
       script: 'main.js',
-      port: 9001,
+      port: 8889,
       watch: ['server', '.server/index.js', 'public', '.env'],
       args: 'start',
       max_memory_restart: '60G',
@@ -13,19 +13,5 @@ module.exports = {
         NODE_ENV: 'production'
       }
     }
-  ],
-
-  deploy: {
-    production: {
-      user: 'SSH_USERNAME',
-      host: 'SSH_HOSTMACHINE',
-      ref: 'origin/master',
-      repo: 'GIT_REPOSITORY',
-      path: 'DESTINATION_PATH',
-      'pre-deploy-local': '',
-      'post-deploy':
-        'npm install && pm2 reload ecosystem.config.js --env production',
-      'pre-setup': ''
-    }
-  }
+  ]
 }
