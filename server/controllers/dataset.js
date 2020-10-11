@@ -1,4 +1,4 @@
-import dataset from '@server/models/scread/dataset.js'
+import dataset from '@server/models/dataset.js'
 
 const getDatasetTable = async function(ctx) {
   const result = await dataset.getDatasets()

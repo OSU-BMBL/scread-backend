@@ -1,4 +1,4 @@
-import dimension from '@server/models/scread/dimension.js'
+import dimension from '@server/models/dimension.js'
 
 const getDimensionTable = async function(ctx) {
   const id = ctx.params.id // get id from context url

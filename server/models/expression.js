@@ -1,6 +1,6 @@
-import db from '@server/config/scread/db.js'
+import db from '@server/config/db.js'
 // the schema directory can only access from ../../
-const schema = '../../schema/scread/expression.js'
+const schema = '../../schema/expression.js'
 
 const screadDb = db.scread
 

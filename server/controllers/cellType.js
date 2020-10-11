@@ -1,4 +1,4 @@
-import ct from '@server/models/scread/cellType.js'
+import ct from '@server/models/cellType.js'
 
 const getCellType = async function(ctx) {
   let id = ctx.params.id

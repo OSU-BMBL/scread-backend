@@ -1,8 +1,8 @@
-import db from '@server/config/scread/db.js'
+import db from '@server/config/db.js'
 import { Op } from 'sequelize'
 // the schema directory can only access from ../../
-const deSchema = '../../schema/scread/de.js'
-const deMetaSchema = '../../schema/scread/de_meta.js'
+const deSchema = '../../schema/de.js'
+const deMetaSchema = '../../schema/de_meta.js'
 
 const screadDb = db.scread
 

@@ -11,7 +11,7 @@ dotenv.config()
 console.log(process.env.DB_URL)
 const scread = new Sequelize(
   `mysql://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env
-    .DB_URL || 'localhost'}/desso`,
+    .DB_URL || 'localhost'}/scread`,
   {
     define: {
       timestamps: false //stop auto adding timestamp to database

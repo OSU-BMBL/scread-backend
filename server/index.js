@@ -6,8 +6,7 @@ import Cors from '@koa/cors'
 import { ApolloServer, gql } from 'apollo-server-koa'
 import { typeDefs } from '@server/typeDefs/index.js'
 import { resolvers } from '@server/resolvers/index.js'
-import DessoRoute from '@server/routes/desso/router.js'
-import ScreadRoute from '@server/routes/scread/router.js'
+import ScreadRoute from '@server/routes/router.js'
 
 //import path from 'path'
 import consola from 'consola'
@@ -34,7 +33,7 @@ app.on('error', function(err, ctx) {
   console.log('server error', err)
 })
 
-router.use('/api/desso', DessoRoute.routes())
+// router.use('/api/desso', DessoRoute.routes())
 router.use('/api/scread', ScreadRoute.routes())
 app.use(Cors())
 app.use(router.routes())

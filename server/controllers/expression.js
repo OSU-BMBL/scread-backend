@@ -1,4 +1,4 @@
-import expression from '@server/models/scread/expression.js'
+import expression from '@server/models/expression.js'
 
 const getExpressionTable = async function(ctx) {
   const id = ctx.params.id // get id from context url

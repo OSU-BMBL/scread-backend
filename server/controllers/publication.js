@@ -1,4 +1,4 @@
-import publication from '@server/models/scread/publication.js'
+import publication from '@server/models/publication.js'
 
 const getPublicationById = async function(ctx) {
   const id = ctx.params.id // get id from context url

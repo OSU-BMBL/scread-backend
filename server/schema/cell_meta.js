@@ -2,7 +2,7 @@
 
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define(
-    'tfbs_data',
+    'cell_meta',
     {
       id: {
         type: DataTypes.INTEGER(11),
@@ -10,41 +10,45 @@ module.exports = function(sequelize, DataTypes) {
         primaryKey: true,
         autoIncrement: true
       },
-      base_id: {
+      cell_name: {
+        type: DataTypes.STRING(50),
+        allowNull: true
+      },
+      subcluster: {
+        type: DataTypes.STRING(50),
+        allowNull: true
+      },
+      umap_1: {
+        type: DataTypes.FLOAT,
+        allowNull: true
+      },
+      umap_2: {
+        type: DataTypes.FLOAT,
+        allowNull: true
+      },
+      pca_1: {
+        type: DataTypes.FLOAT,
+        allowNull: true
+      },
+      pca_2: {
+        type: DataTypes.FLOAT,
+        allowNull: true
+      },
+      pca_3: {
+        type: DataTypes.FLOAT,
+        allowNull: true
+      },
+      cell_type: {
+        type: DataTypes.STRING(50),
+        allowNull: true
+      },
+      data_id: {
         type: DataTypes.CHAR(50),
-        allowNull: true
-      },
-      row: {
-        type: DataTypes.INTEGER(11),
-        allowNull: true
-      },
-      chrom: {
-        type: DataTypes.STRING(50),
-        allowNull: true
-      },
-      start: {
-        type: DataTypes.INTEGER(11),
-        allowNull: true
-      },
-      end: {
-        type: DataTypes.INTEGER(11),
-        allowNull: true
-      },
-      sequence: {
-        type: DataTypes.STRING(50),
-        allowNull: true
-      },
-      near_gene: {
-        type: DataTypes.STRING(50),
-        allowNull: true
-      },
-      distance_near_gene: {
-        type: DataTypes.STRING(50),
         allowNull: true
       }
     },
     {
-      tableName: 'tfbs_data'
+      tableName: 'cell_meta'
     }
   )
 }

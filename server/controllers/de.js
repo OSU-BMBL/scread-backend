@@ -1,4 +1,4 @@
-import de from '@server/models/scread/de.js'
+import de from '@server/models/de.js'
 
 const getDeTable = async function(ctx) {
   const id = ctx.params.id // get id from context url
