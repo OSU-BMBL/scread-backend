@@ -12,7 +12,9 @@ import KoaRouter from 'koa-router'
 const router = KoaRouter()
 
 router.get('/de/:id', de.getDeTable)
+router.get('/de/gene/:id', de.getDeGene)
 router.get('/de/:id/meta', de.getDeType)
+router.get('/de-type', de.getAllDeType)
 router.get('/dataset', dataset.getDatasetTable)
 router.get('/dataset/:id', dataset.getDatasetById)
 router.get('/dimension/:id/type/:type', dimension.getDimensionTable)

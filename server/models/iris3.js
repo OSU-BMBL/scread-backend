@@ -1,6 +1,6 @@
 import db from '@server/config/db.js'
-// the schema directory can only access from ../../
-const schema = '../../schema/iris3_regulon.js'
+// the schema directory can only access from ../
+const schema = '../schema/iris3_regulon.js'
 
 const screadDb = db.scread
 

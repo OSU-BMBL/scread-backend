@@ -36,10 +36,10 @@ GET http://localhost:8889/api/scread/dataset
 GET http://localhost:8889/api/scread/dataset/AD00102
 
 ### // Get dataset info by ID
-GET http://localhost:8889/api/scread/dataset/AD00102
+GET http://localhost:8889/api/scread/dataset/AD00105
 
 ### // Get all UMAP info by ID
-GET http://localhost:8889/api/scread/dimension/AD00103/type/all
+GET http://localhost:8889/api/scread/dimension/AD00101/type/all
 
 
 ### // Get subcluster UMAP info by ID
@@ -70,3 +70,9 @@ POST http://localhost:8889/api/scread/upload
 
 ### // 
 GET http://localhost:8889/api/scread/expression/Lrrtm4/id/AD00602
+
+### // 
+GET http://localhost:8889/api/scread/de/gene/malat1
+
+### // 
+GET http://localhost:8889/api/scread/de/type

@@ -25,8 +25,20 @@ const getDeType = async function(ctx) {
   ctx.body = result
 }
 
+const getAllDeType = async function(ctx) {
+  const result = await de.getAllDeType()
+  ctx.body = result
+}
+const getDeGene = async function(ctx) {
+  const id = ctx.params.id
+  const result = await de.getDeGeneByName(id)
+  ctx.body = result
+}
+
 // export methods and use in router
 export default {
   getDeTable,
-  getDeType
+  getDeType,
+  getDeGene,
+  getAllDeType
 }

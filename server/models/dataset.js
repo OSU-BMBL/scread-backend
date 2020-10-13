@@ -1,6 +1,6 @@
 import db from '@server/config/db.js'
-// the schema directory can only access from ../../
-const schema = '../../schema/dataset.js'
+// the schema directory can only access from ../
+const schema = '../schema/dataset.js'
 
 const screadDb = db.scread
 

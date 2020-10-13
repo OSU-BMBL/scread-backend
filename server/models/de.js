@@ -1,8 +1,8 @@
 import db from '@server/config/db.js'
 import { Op } from 'sequelize'
 // the schema directory can only access from ../../
-const deSchema = '../../schema/de.js'
-const deMetaSchema = '../../schema/de_meta.js'
+const deSchema = '../schema/de.js'
+const deMetaSchema = '../schema/de_meta.js'
 
 const screadDb = db.scread
 
@@ -20,7 +20,7 @@ const getDeTableById = async function(id, other) {
       type: other.type
     },
     attributes: ['avg_logFC', 'p_val_adj', 'gene'],
-    limit: 5000,
+    limit: 50000,
     order: screadDb.col('p_val_adj')
   })
 
@@ -56,9 +56,28 @@ const getDeTypeById = async function(id) {
   return result // return data
 }
 
+const getAllDeType = async function(id) {
+  // note is is async function and async statement
+  const result = await deMeta.findAll()
+  return result // return data
+}
+
+const getDeGeneByName = async function(id) {
+  // note is is async function and async statement
+  const result = await de.findAndCountAll({
+    // use await control async process, return data from Promise object
+    where: {
+      gene: id
+    }
+  })
+  return result // return data
+}
+
 export default {
   // will used in controller
   getDeTableById,
   getSubclusterDeTableById,
-  getDeTypeById
+  getDeTypeById,
+  getDeGeneByName,
+  getAllDeType
 }

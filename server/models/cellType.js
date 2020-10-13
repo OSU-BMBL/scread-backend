@@ -1,6 +1,6 @@
 import db from '@server/config/db.js'
-// the schema directory can only access from ../../
-const schema = '../../schema/cell_type_meta.js'
+// the schema directory can only access from ../
+const schema = '../schema/cell_type_meta.js'
 
 const screadDb = db.scread
 

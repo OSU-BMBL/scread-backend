@@ -1,7 +1,7 @@
 import db from '@server/config/db.js'
 import { Op } from 'sequelize'
-// the schema directory can only access from ../../
-const schema = '../../schema/cell_meta.js'
+// the schema directory can only access from ../
+const schema = '../schema/cell_meta.js'
 
 const screadDb = db.scread
 
