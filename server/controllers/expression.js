@@ -16,12 +16,9 @@ const getExpressionByLine = async function(ctx) {
   const nthline = require('nthline')
   const id = ctx.params.id // get id from context url
   const gene = ctx.params.gene
-  const filePath = __dirname + '/../../../data/' + id + '_expr.txt'
-  // const rowNumber = 42
-
+  const filePath = __dirname + '/../../data/' + id + '_expr.txt'
   const row = await expression.getRowById(id, gene)
   const rowNumber = row.dataValues.row
-  console.log(rowNumber)
   const line2 = await nthline(rowNumber, filePath).then((line) =>
     // JSON.stringify(line)
     line.split('\t')
