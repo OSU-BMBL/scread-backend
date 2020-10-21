@@ -1,17 +1,27 @@
-# api-server-koa
+# scREAD-backend
 
-This is the API server for [Bioinformatics and Mathematical Biosciences Lab (BMBL)](https://u.osu.edu/bmbl/). Ther server builds on top of Koa.js, MYSQL, providing REST API and GraphQL for bioinformatics web servers and databases in the lab.
+This is the API server for [scREAD](https://bmbls.bmi.osumc.edu/scread/). Ther server builds on top of Koa.js and connects to a MYSQL database. The server is developed by [Bioinformatics and Mathematical Biosciences Lab (BMBL)](https://u.osu.edu/bmbl/)
 
-## Todos
+## For new users
 
-- Implement GraphQL
-- Add installation tutorial from loading all DESSO sql files
+The SQL data are stored in the internal MySQL databse at OSUMC, we cannot provide sql files due to the security reasons, thus, building the back end server in your server can be challenging. However, you can still use the scREAD backend api service from a public URL: https://bmbls.bmi.osumc.edu/api/scread.
+
+### Example APIs
+
+```
+# List all datasets
+https://bmbls.bmi.osumc.edu/api/scread/dataset
+
+# Search differentially expressed genes, e.g. GAD1 gene.
+https://bmbls.bmi.osumc.edu/api/scread/de/gene/gad1
+
+```
 
 ## Install
 
 ```
-git clone git@github.com:Wang-Cankun/api-server-koajs.git
-cd api-server-koajs
+git clone https://github.com/OSU-BMBL/scread-backend.git
+cd scread-backend
 npm install
 ```
 
@@ -36,7 +46,7 @@ npm install -g mysql
 After installed [`sequelize-auto`] and [`mysql`],enter [`./server`] folder, run the following command:
 
 ```env
-sequelize-auto -o "./schema/desso" -d desso -h 127.0.0.1 -u root -p 3306 -x YOUR_PASSWORD -e mysql
+sequelize-auto -o "./schema/scread" -d scread -h 127.0.0.1 -u root -p 3306 -x YOUR_PASSWORD -e mysql
 ```
 
 ### Start the server
