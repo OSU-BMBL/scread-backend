@@ -20,7 +20,6 @@ const getDeTableById = async function(id, other) {
       type: other.type
     },
     attributes: ['avg_logFC', 'p_val_adj', 'pct_1', 'pct_2', 'gene'],
-    limit: 50000,
     order: screadDb.col('p_val_adj')
   })
 
@@ -39,8 +38,7 @@ const getSubclusterDeTableById = async function(id, other) {
       type: 'subcluster'
     },
     attributes: ['avg_logFC', 'p_val_adj', 'pct_1', 'pct_2', 'gene'],
-    order: screadDb.col('p_val_adj'),
-    limit: 30000
+    order: screadDb.col('p_val_adj')
   })
   return result // return data
 }
