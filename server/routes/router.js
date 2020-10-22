@@ -10,7 +10,18 @@ import upload from '@server/controllers/upload.js'
 import KoaRouter from 'koa-router'
 
 const router = KoaRouter()
+router.get('/', (ctx, next) => {
+  ctx.body = `Hello,
 
+  You are visiting the API server for scREAD: https://bmbls.bmi.osumc.edu/scread
+
+  scREAD is a single-cell RNA-seq database for Alzheimer’s disease, dedicated to collect all existing 
+  Human and Mouse Alzheimer's Disease scRNA-Seq data, and provide comprehensive interpretations.
+
+  Frontend GitHub: https://github.com/OSU-BMBL/scread
+
+  Backend GitHub: https://github.com/OSU-BMBL/scread-backend`
+})
 router.get('/de/:id', de.getDeTable)
 router.get('/de/gene/:id', de.getDeGene)
 router.get('/de/:id/meta', de.getDeType)
