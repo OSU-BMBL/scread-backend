@@ -4,7 +4,7 @@ This is the API server for [scREAD](https://bmbls.bmi.osumc.edu/scread/). Ther s
 
 ## For new users
 
-The SQL data are stored in the internal MySQL databse at OSUMC, we cannot provide sql files due to the security reasons, thus, building the back end server in your server can be challenging. However, you can still use the scREAD backend api service from a public URL: https://bmbls.bmi.osumc.edu/api/scread.
+You can directly use the scREAD backend api service from a public URL: https://bmbls.bmi.osumc.edu/api/scread.
 
 ### Example APIs
 
