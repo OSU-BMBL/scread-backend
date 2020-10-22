@@ -13,7 +13,7 @@ const getCellTypeById = async function(id, type) {
     where: {
       data_id: id
     },
-    attributes: ['data_id', 'cell_type']
+    attributes: ['data_id', 'cell_type', 'subcluster']
   })
   return result // return data
 }
