@@ -22,7 +22,9 @@ router.get('/', (ctx, next) => {
 
   Backend GitHub: https://github.com/OSU-BMBL/scread-backend`
 })
+router.get('/comparation', de.getComparation)
 router.get('/de/:id', de.getDeTable)
+router.get('/de/ctrl/:id', de.getControlledIds)
 router.get('/de/gene/:id', de.getDeGene)
 router.get('/de/:id/meta', de.getDeType)
 router.get('/de-type', de.getAllDeType)

@@ -22,21 +22,22 @@ const getCellTypeById = async function (id, type) {
 const getCellTypeList = async function () {
   let result = await ct.findAll({
     attributes: [
-      Sequelize.fn('DISTINCT', Sequelize.col('cell_type')), 'cell_type'
+      Sequelize.fn('DISTINCT', Sequelize.col('cell_type')),
+      'cell_type'
     ]
   })
   result = result.reduce((map, obj) => {
-    let s = ""
-    if (obj.cell_type == "Oligodendrocyte precursor cells") {
-      s = "opc"
-    } else if (obj.cell_type == "NK cells") {
-      s = "nkc"
+    let s = ''
+    if (obj.cell_type == 'Oligodendrocyte precursor cells') {
+      s = 'opc'
+    } else if (obj.cell_type == 'NK cells') {
+      s = 'nk'
     } else {
       s = obj.cell_type.substring(0, 3).toLowerCase()
     }
     map[s] = obj.cell_type
     return map
-  }, {});
+  }, {})
   return result // return data
 }
 
