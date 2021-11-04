@@ -7,7 +7,7 @@ const screadDb = db.scread
 
 // use sequelize to import table structure
 const ct = screadDb.import(schema)
-const getCellTypeById = async function (id, type) {
+const getCellTypeById = async function(id, type) {
   // note is is async function and async statement
   const result = await ct.findAll({
     // use await control async process, return data from Promise object
@@ -19,7 +19,7 @@ const getCellTypeById = async function (id, type) {
   return result // return data
 }
 
-const getCellTypeList = async function () {
+const getCellTypeList = async function() {
   let result = await ct.findAll({
     attributes: [
       Sequelize.fn('DISTINCT', Sequelize.col('cell_type')),

@@ -6,14 +6,14 @@ const screadDb = db.scread
 // use sequelize to import table structure
 const dataset = screadDb.import(schema)
 
-const getDatasets = async function () {
+const getDatasets = async function() {
   const allDataset = await dataset.findAll({
     order: screadDb.col('data_id')
   })
   return allDataset
 }
 
-const getDataset = async function (id) {
+const getDataset = async function(id) {
   const allDataset = await dataset.findAll({
     where: {
       data_id: id
@@ -22,7 +22,7 @@ const getDataset = async function (id) {
   return allDataset
 }
 
-const getExperiment = async function (id) {
+const getExperiment = async function(id) {
   const allDataset = await dataset.findAll({
     where: {
       data_id: id
@@ -31,18 +31,16 @@ const getExperiment = async function (id) {
   return allDataset
 }
 
-const getRegions = async function () {
+const getRegions = async function() {
   const allRegions = await dataset.findAll({
-    attributes: [
-      Sequelize.fn('DISTINCT', Sequelize.col('region')), 'region'
-    ]
+    attributes: [Sequelize.fn('DISTINCT', Sequelize.col('region')), 'region']
   })
   // also aggregate('region', 'DISTINCT', { plain: false })
-  const distinctRegions = allRegions.map(r => r['region'])
+  const distinctRegions = allRegions.map((r) => r['region'])
   return distinctRegions
 }
 
-const getDataIds = async function (region, species, condition) {
+const getDataIds = async function(region, species, condition) {
   const filter = {
     region: region,
     species: species
@@ -54,11 +52,9 @@ const getDataIds = async function (region, species, condition) {
     where: filter,
     attributes: ['data_id']
   })
-  allDataIds = allDataIds.map(r => r.data_id)
+  allDataIds = allDataIds.map((r) => r.data_id)
   return allDataIds
 }
-
-
 
 export default {
   // will used in controller
