@@ -6,6 +6,12 @@ const getCellType = async function(ctx) {
   ctx.body = result
 }
 
+const getCellTypeList = async function(ctx) {
+  const result = await ct.getCellTypeList()
+  ctx.body = result
+}
+
 export default {
-  getCellType
+  getCellType,
+  getCellTypeList
 }

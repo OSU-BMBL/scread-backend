@@ -35,10 +35,32 @@ const getDeGene = async function(ctx) {
   ctx.body = result
 }
 
+const getControlledIds = async function(ctx) {
+  const id = ctx.params.id
+  const result = await de.getControlledIds(id)
+  ctx.body = result
+}
+
+const getComparison = async function(ctx) {
+  let q = ctx.request.query
+  const top = parseInt(q.top)
+  const overlapthreshold = parseInt(q.overlapthreshold)
+  const result = await de.getComparison(
+    q.region,
+    q.species,
+    top,
+    overlapthreshold,
+    q.direction
+  )
+  ctx.body = result
+}
+
 // export methods and use in router
 export default {
   getDeTable,
   getDeType,
   getDeGene,
-  getAllDeType
+  getAllDeType,
+  getControlledIds,
+  getComparison
 }

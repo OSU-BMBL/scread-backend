@@ -1,4 +1,5 @@
 import db from '@server/config/db.js'
+import Sequelize from 'sequelize'
 // the schema directory can only access from ../
 const schema = '../schema/cell_type_meta.js'
 
@@ -18,7 +19,30 @@ const getCellTypeById = async function(id, type) {
   return result // return data
 }
 
+const getCellTypeList = async function() {
+  let result = await ct.findAll({
+    attributes: [
+      Sequelize.fn('DISTINCT', Sequelize.col('cell_type')),
+      'cell_type'
+    ]
+  })
+  result = result.reduce((map, obj) => {
+    let s = ''
+    if (obj.cell_type == 'Oligodendrocyte precursor cells') {
+      s = 'opc'
+    } else if (obj.cell_type == 'NK cells') {
+      s = 'nk'
+    } else {
+      s = obj.cell_type.substring(0, 3).toLowerCase()
+    }
+    map[s] = obj.cell_type
+    return map
+  }, {})
+  return result // return data
+}
+
 export default {
   // will used in controller
-  getCellTypeById
+  getCellTypeById,
+  getCellTypeList
 }

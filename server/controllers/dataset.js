@@ -17,9 +17,22 @@ const getSameExperimentById = async function(ctx) {
   ctx.body = result
 }
 
+const getAllRegions = async function(ctx) {
+  // const result = ['test']// await dataset.getRegions()
+  const result = await dataset.getRegions()
+  ctx.body = result
+}
+
+const getDataIds = async function(ctx) {
+  let q = ctx.request.query
+  const result = await dataset.getDataIds(q.region, q.species, q.control)
+  ctx.body = result
+}
 // export methods and use in router
 export default {
   getDatasetTable,
   getDatasetById,
-  getSameExperimentById
+  getSameExperimentById,
+  getDataIds,
+  getAllRegions
 }
