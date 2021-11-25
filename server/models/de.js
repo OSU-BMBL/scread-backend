@@ -37,7 +37,7 @@ const combinations = (collection, combinationLength) => {
   return result
 }
 
-const getDeTableById = async function(id, other) {
+const getDeTableById = async function (id, other) {
   const result = await de.findAndCountAll({
     where: {
       a_data_id: id,
@@ -52,7 +52,7 @@ const getDeTableById = async function(id, other) {
   return result
 }
 
-const getSubclusterDeTableById = async function(id, other) {
+const getSubclusterDeTableById = async function (id, other) {
   const result = await de.findAndCountAll({
     where: {
       a_data_id: id,
@@ -67,7 +67,7 @@ const getSubclusterDeTableById = async function(id, other) {
   return result
 }
 
-const getDeTypeById = async function(id) {
+const getDeTypeById = async function (id) {
   const result = await deMeta.findAll({
     where: {
       [Op.or]: [{ data_id: id }, { b_data_id: id }]
@@ -76,12 +76,12 @@ const getDeTypeById = async function(id) {
   return result
 }
 
-const getAllDeType = async function(id) {
+const getAllDeType = async function (id) {
   const result = await deMeta.findAll()
   return result
 }
 
-const getDeGeneByName = async function(id) {
+const getDeGeneByName = async function (id) {
   const result = await de.findAndCountAll({
     where: {
       gene: id
@@ -90,7 +90,7 @@ const getDeGeneByName = async function(id) {
   return result
 }
 
-const getControlledIds = async function(id) {
+const getControlledIds = async function (id) {
   let result = await deMeta.findAll({
     where: {
       // data_id: id,
@@ -104,7 +104,7 @@ const getControlledIds = async function(id) {
   return result
 }
 
-const getComparisonDeg = async function(
+const getOverlapDeg = async function (
   ctShortName,
   ctLongName,
   diseaseId,
@@ -112,7 +112,16 @@ const getComparisonDeg = async function(
   direction
 ) {
   const ctrlIds = await getControlledIds(diseaseId)
-  const attrs = ['ct', 'gene', 'avg_logFC', 'a_data_id', 'b_data_id']
+  const attrs = [
+    'cluster',
+    'gene',
+    'avg_logFC',
+    'p_val_adj',
+    'pct_1',
+    'pct_2',
+    'a_data_id',
+    'b_data_id'
+  ]
   let filter = {
     cluster: ctLongName,
     ct: ctShortName,
@@ -147,18 +156,18 @@ const getComparisonDeg = async function(
   return result
 }
 
-const getComparison = async function(
+const getOverlap = async function (
   region,
   species,
   top,
-  overlapThreshold,
+  threshold,
   direction
 ) {
   const cellTypeMap = await cellType.getCellTypeList()
   const diseaseIds = await dataSet.getDataIds(region, species, 'Disease')
-  // get the intersection of genes of the diseases by overlapthreshold
+  // get the intersection of genes of the diseases by threshold
   const idxs = [...Array(diseaseIds.length).keys()]
-  const diseaseCombn = combinations(idxs, overlapThreshold)
+  const diseaseCombn = combinations(idxs, threshold)
   // console.log(diseaseIds)
   let listOfGeneList = {}
   let degTable = []
@@ -166,7 +175,7 @@ const getComparison = async function(
     let ctDegTable = []
     let ctGeneList = []
     for (const diseaseId of diseaseIds) {
-      const result = await getComparisonDeg(
+      const result = await getOverlapDeg(
         ctShortName,
         ctLongName,
         diseaseId,
@@ -260,5 +269,5 @@ export default {
   getDeGeneByName,
   getAllDeType,
   getControlledIds,
-  getComparison
+  getOverlap
 }
