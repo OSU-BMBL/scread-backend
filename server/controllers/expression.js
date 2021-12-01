@@ -39,12 +39,36 @@ const getExpressionByLine = async function(ctx) {
     const keepIndex = [0, ..._.range(1, nCells, nStep)]
     result = keepIndex.map((i) => logNormalizeValue[i])
   }
+  console.log(result)
   ctx.body = result
+}
+
+const getExpressionByIdAndGene = async function(ctx) {
+  const { spawn } = require('child_process')
+
+  const id = ctx.params.id
+  const gene = ctx.params.gene
+  // const filePath = __dirname + '/../../data/' + id + '_expr.loom'
+
+  // id = 'AD00603'
+  // gene = 'Gad1'
+
+  const scriptPath = __dirname + '/../../data/GetExpressionByIdAndGene.py'
+
+  const process = spawn('python', [scriptPath, id, gene])
+
+  // Takes stdout data from script which executed
+  // with arguments and send this data to res object
+  process.stdout.on('data', function(data) {
+    console.log(data.toString())
+    ctx.body = data.toString()
+  })
 }
 
 // export methods and use in router
 export default {
   getExpressionTable,
   getExpressionGenes,
-  getExpressionByLine
+  getExpressionByLine,
+  getExpressionByIdAndGene
 }

@@ -23,7 +23,10 @@ GET http://localhost:8889/api/scread/de/AD00105?second_id=AD00103&ct=ast&type=ct
 GET http://localhost:8889/api/scread/de/AD00103/meta
 
 ### // Get expression info by gene
-GET http://localhost:8889/api/scread/expression/MIR1302-10
+GET http://localhost:8889/api/scread/expression/Gad2/id/AD00603
+
+###
+GET http://localhost:8889/api/scread/expression_web/Gad2/id/AD00603
 
 ### // Get iris3 table info by data id
 GET http://localhost:8889/api/scread/regulon/AD00102
@@ -67,12 +70,11 @@ GET http://localhost:8889/api/scread/expression_genes/AD00602
 ### // 
 POST http://localhost:8889/api/scread/upload
 
-
 ### // 
 GET http://localhost:8889/api/scread/expression/Lrrtm4/id/AD00602
 
 ### // 
-GET http://localhost:8889/api/scread/de/gene/malat1
+GET http://localhost:8889/api/scread/de/gene/gad1
 
 ### // 
-GET http://localhost:8889/api/scread/de/type
+GET http://localhost:8889/api/scread/type
