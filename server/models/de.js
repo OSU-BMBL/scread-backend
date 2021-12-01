@@ -37,7 +37,7 @@ const combinations = (collection, combinationLength) => {
   return result
 }
 
-const getDeTableById = async function (id, other) {
+const getDeTableById = async function(id, other) {
   const result = await de.findAndCountAll({
     where: {
       a_data_id: id,
@@ -52,7 +52,7 @@ const getDeTableById = async function (id, other) {
   return result
 }
 
-const getSubclusterDeTableById = async function (id, other) {
+const getSubclusterDeTableById = async function(id, other) {
   const result = await de.findAndCountAll({
     where: {
       a_data_id: id,
@@ -67,7 +67,7 @@ const getSubclusterDeTableById = async function (id, other) {
   return result
 }
 
-const getDeTypeById = async function (id) {
+const getDeTypeById = async function(id) {
   const result = await deMeta.findAll({
     where: {
       [Op.or]: [{ data_id: id }, { b_data_id: id }]
@@ -76,12 +76,12 @@ const getDeTypeById = async function (id) {
   return result
 }
 
-const getAllDeType = async function (id) {
+const getAllDeType = async function(id) {
   const result = await deMeta.findAll()
   return result
 }
 
-const getDeGeneByName = async function (id) {
+const getDeGeneByName = async function(id) {
   const result = await de.findAndCountAll({
     where: {
       gene: id
@@ -90,7 +90,7 @@ const getDeGeneByName = async function (id) {
   return result
 }
 
-const getControlledIds = async function (id) {
+const getControlledIds = async function(id) {
   let result = await deMeta.findAll({
     where: {
       // data_id: id,
@@ -104,7 +104,7 @@ const getControlledIds = async function (id) {
   return result
 }
 
-const getOverlapDeg = async function (
+const getOverlapDeg = async function(
   ctShortName,
   ctLongName,
   diseaseId,
@@ -156,13 +156,7 @@ const getOverlapDeg = async function (
   return result
 }
 
-const getOverlap = async function (
-  region,
-  species,
-  top,
-  threshold,
-  direction
-) {
+const getOverlap = async function(region, species, top, threshold, direction) {
   const cellTypeMap = await cellType.getCellTypeList()
   const diseaseIds = await dataSet.getDataIds(region, species, 'Disease')
   // get the intersection of genes of the diseases by threshold
