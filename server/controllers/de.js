@@ -1,6 +1,6 @@
 import de from '@server/models/de.js'
 
-const getDeTable = async function(ctx) {
+const getDeTable = async function (ctx) {
   const id = ctx.params.id // get id from context url
   let other = ctx.request.query
   if (other.type === 'subcluster') {
@@ -19,37 +19,37 @@ const getDeTable = async function(ctx) {
   // store result in context body part
 }
 
-const getDeType = async function(ctx) {
+const getDeType = async function (ctx) {
   const id = ctx.params.id
   const result = await de.getDeTypeById(id)
   ctx.body = result
 }
 
-const getAllDeType = async function(ctx) {
+const getAllDeType = async function (ctx) {
   const result = await de.getAllDeType()
   ctx.body = result
 }
-const getDeGene = async function(ctx) {
+const getDeGene = async function (ctx) {
   const id = ctx.params.id
   const result = await de.getDeGeneByName(id)
   ctx.body = result
 }
 
-const getControlledIds = async function(ctx) {
+const getControlledIds = async function (ctx) {
   const id = ctx.params.id
   const result = await de.getControlledIds(id)
   ctx.body = result
 }
 
-const getComparison = async function(ctx) {
+const getOverlap = async function (ctx) {
   let q = ctx.request.query
   const top = parseInt(q.top)
-  const overlapthreshold = parseInt(q.overlapthreshold)
-  const result = await de.getComparison(
+  const threshold = parseInt(q.threshold)
+  const result = await de.getOverlap(
     q.region,
     q.species,
     top,
-    overlapthreshold,
+    threshold,
     q.direction
   )
   ctx.body = result
@@ -62,5 +62,5 @@ export default {
   getDeGene,
   getAllDeType,
   getControlledIds,
-  getComparison
+  getOverlap
 }
