@@ -37,7 +37,7 @@ const combinations = (collection, combinationLength) => {
   return result
 }
 
-const getDeTableById = async function(id, other) {
+const getDeTableById = async (id, other) => {
   const result = await de.findAndCountAll({
     where: {
       a_data_id: id,
@@ -52,7 +52,7 @@ const getDeTableById = async function(id, other) {
   return result
 }
 
-const getSubclusterDeTableById = async function(id, other) {
+const getSubclusterDeTableById = async (id, other) => {
   const result = await de.findAndCountAll({
     where: {
       a_data_id: id,
@@ -67,7 +67,7 @@ const getSubclusterDeTableById = async function(id, other) {
   return result
 }
 
-const getDeTypeById = async function(id) {
+const getDeTypeById = async (id) => {
   const result = await deMeta.findAll({
     where: {
       [Op.or]: [{ data_id: id }, { b_data_id: id }]
@@ -76,12 +76,12 @@ const getDeTypeById = async function(id) {
   return result
 }
 
-const getAllDeType = async function(id) {
+const getAllDeType = async (id) => {
   const result = await deMeta.findAll()
   return result
 }
 
-const getDeGeneByName = async function(id) {
+const getDeGeneByName = async (id) => {
   const result = await de.findAndCountAll({
     where: {
       gene: id
@@ -90,7 +90,7 @@ const getDeGeneByName = async function(id) {
   return result
 }
 
-const getControlledIds = async function(id) {
+const getControlledIds = async (id) => {
   let result = await deMeta.findAll({
     where: {
       // data_id: id,
@@ -104,13 +104,11 @@ const getControlledIds = async function(id) {
   return result
 }
 
-const getOverlapDeg = async function(
-  ctShortName,
+const getOverlapDeg = async (ctShortName,
   ctLongName,
   diseaseId,
   top,
-  direction
-) {
+  direction) => {
   const ctrlIds = await getControlledIds(diseaseId)
   const attrs = [
     'cluster',
@@ -156,7 +154,7 @@ const getOverlapDeg = async function(
   return result
 }
 
-const getOverlap = async function(region, species, top, threshold, direction) {
+const getOverlap = async (region, species, top, threshold, direction) => {
   const cellTypeMap = await cellType.getCellTypeList()
   const diseaseIds = await dataSet.getDataIds(region, species, 'Disease')
   // get the intersection of genes of the diseases by threshold
@@ -176,10 +174,6 @@ const getOverlap = async function(region, species, top, threshold, direction) {
         top,
         direction
       )
-      // bug, should in the list even if result.length == 0
-      // if (result.length > 0) {
-      // get the gene list from the result
-      // and save the result
       const genes = result.map((r) => r.gene)
       ctGeneList.push(genes)
       ctDegTable = ctDegTable.concat(result)
@@ -201,7 +195,7 @@ const getOverlap = async function(region, species, top, threshold, direction) {
 
   const gene_ct_map = {}
   Object.entries(listOfGeneList).reduce((map, [ct, genes]) => {
-    // console.log(map, ct, genes)
+
     genes.reduce((map1, gene) => {
       if (gene in map1) {
         map1[gene].push(ct)
@@ -215,37 +209,23 @@ const getOverlap = async function(region, species, top, threshold, direction) {
   // count the ct-gene pairs, and sum up the rank for avg
   const ct_gene = new Map()
   degTable.reduce((map, ct_g) => {
-    if (map.has(ct_g.ct)) {
-      let ct = map.get(ct_g.ct)
-      if (ct.has(ct_g.gene)) {
-        let g = ct.get(ct_g.gene)
-        g.set('cnt', g.get('cnt') + 1)
-        g.set('rank', g.get('rank') + ct_g.rank)
-      } else {
-        let tmp = new Map()
-        tmp.set('cnt', 1)
-        tmp.set('rank', ct_g.rank)
-        ct.set(ct_g.gene, tmp)
-      }
+    const mKey = [ct_g.cluster, ct_g.gene].join('_')
+    if (map.has(mKey)) {
+      let cg = map.get(mKey)
+      cg.set('cnt', cg.get('cnt') + 1)
+      cg.set('rank', cg.get('rank') + ct_g.rank)
     } else {
       let tmp = new Map()
       tmp.set('cnt', 1)
       tmp.set('rank', ct_g.rank)
-      let tmp2 = new Map()
-      tmp2.set(ct_g.gene, tmp)
-      map.set(ct_g.ct, tmp2)
+      map.set(mKey, tmp)
     }
     return map
   }, ct_gene)
   degTable.map((deg) => {
-    let cnt = ct_gene
-      .get(deg.ct)
-      .get(deg.gene)
-      .get('cnt')
-    let ranksum = ct_gene
-      .get(deg.ct)
-      .get(deg.gene)
-      .get('rank')
+    const mKey = [deg.cluster, deg.gene].join('_')
+    let cnt = ct_gene.get(mKey).get('cnt')
+    let ranksum = ct_gene.get(mKey).get('rank')
     deg['overlapping_comparison'] = cnt
     deg['mean_rank'] = ranksum / cnt
 
