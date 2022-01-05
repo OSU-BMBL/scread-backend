@@ -29,17 +29,7 @@ const getExpressionByLine = async function(ctx) {
     geneName,
     ...geneCounts.map((value) => Math.log1p(value))
   ]
-
-  let result = logNormalizeValue
-
-  const nCells = logNormalizeValue.length
-  if (nCells > 8000) {
-    const nStep = Math.floor(nCells / 5000)
-    // Kepp first gene name
-    const keepIndex = [0, ..._.range(1, nCells, nStep)]
-    result = keepIndex.map((i) => logNormalizeValue[i])
-  }
-  ctx.body = result
+  ctx.body = logNormalizeValue
 }
 
 // export methods and use in router
