@@ -5,6 +5,11 @@ const getDatasetTable = async function(ctx) {
   ctx.body = result
 }
 
+const getDatasetTable2 = async function(ctx) {
+  const result = await dataset.getDatasets2()
+  ctx.body = result
+}
+
 const getDatasetById = async function(ctx) {
   const id = ctx.params.id // get id from context url
   const result = await dataset.getDataset(id) // return query results using await function instead of a promise
@@ -31,6 +36,7 @@ const getDataIds = async function(ctx) {
 // export methods and use in router
 export default {
   getDatasetTable,
+  getDatasetTable2,
   getDatasetById,
   getSameExperimentById,
   getDataIds,

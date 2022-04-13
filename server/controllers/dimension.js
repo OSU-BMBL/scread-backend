@@ -1,4 +1,5 @@
 import dimension from '@server/models/dimension.js'
+import spatialDimension from '@server/models/spatialDimension.js'
 
 const getDimensionTable = async function(ctx) {
   const id = ctx.params.id // get id from context url
@@ -15,7 +16,15 @@ const getDimensionTable = async function(ctx) {
   // store result in context body part
 }
 
+const getSpatialDimensionTable = async function(ctx) {
+  const id = ctx.params.id // get id from context url
+  let type = ctx.params.type
+  const result = await spatialDimension.getSpatialDimensionById(id, 'all')
+  ctx.body = result
+}
+
 // export methods and use in router
 export default {
-  getDimensionTable
+  getDimensionTable,
+  getSpatialDimensionTable
 }

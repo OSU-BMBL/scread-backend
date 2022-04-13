@@ -17,6 +17,10 @@ module.exports = function(sequelize, DataTypes) {
       cell_type: {
         type: DataTypes.STRING(50),
         allowNull: true
+      },
+      subcluster: {
+        type: DataTypes.STRING(50),
+        allowNull: true
       }
     },
     {

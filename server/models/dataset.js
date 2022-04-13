@@ -13,6 +13,13 @@ const getDatasets = async function() {
   return allDataset
 }
 
+const getDatasets2 = async function() {
+  const allDataset = await dataset.findAll({
+    order: screadDb.col('data_id')
+  })
+  return allDataset
+}
+
 const getDataset = async function(id) {
   const allDataset = await dataset.findAll({
     where: {
