@@ -8,6 +8,9 @@ import cellType from '@server/controllers/cellType.js'
 import upload from '@server/controllers/upload.js'
 import KoaRouter from 'koa-router'
 
+import dataset_v2 from '@server/controllers/dataset_v2.js'
+import publication_v2 from '@server/controllers/publication_v2.js'
+
 const router = KoaRouter()
 router.get('/', (ctx, next) => {
   ctx.body = `Hello,
@@ -44,5 +47,14 @@ router.get('/publication/:id', publication.getPublicationById)
 router.get('/celltype', cellType.getCellTypeList)
 router.get('/celltype/:id', cellType.getCellType)
 router.post('/upload', upload.submitFiles)
+
+// v2
+router.get('/v2/publication/:id', publication_v2.getPublicationById)
+router.get('/v2/publication/:id', publication_v2.getPublicationById)
+router.get('/v2/dataset', dataset_v2.getDatasetTable)
+router.get('/v2/dataset2', dataset_v2.getDatasetTable2)
+router.get('/v2/dataset/data_ids', dataset_v2.getDataIds)
+router.get('/v2/dataset/regions', dataset_v2.getAllRegions)
+router.get('/v2/dataset/:id', dataset_v2.getDatasetById)
 
 export default router
