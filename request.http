@@ -1,16 +1,3 @@
-### // List Dataset table
-GET http://localhost:8889/api/desso/info
-### // Get dataset and its logo by dataset ID
-GET http://localhost:8889/api/desso/info/DE000001
-### // Get dataset annotation information by ID
-GET http://localhost:8889/api/desso/info/DE000001/annotation
-### // Get Binding sites by logo ID
-GET http://localhost:8889/api/desso/sites/DE00000101?format=jaspar
-### // Get Position frequency matrix table (TFBS) by logo ID
-GET http://localhost:8889/api/desso/matrix/DE00000101
-
-### Test GraphQL
-GET http://localhost:8889/graphql?query={hello}
 
 ### // Test API
 POST https://httpbin.org/post
@@ -22,8 +9,6 @@ GET http://localhost:8889/api/scread/de/AD00105?second_id=AD00103&ct=ast&type=ct
 ### // Get DEG list comparison type
 GET http://localhost:8889/api/scread/de/AD00103/meta
 
-### // Get expression info by gene
-GET http://localhost:8889/api/scread/expression/MIR1302-10
 
 ### // Get iris3 table info by data id
 GET http://localhost:8889/api/scread/regulon/AD00102

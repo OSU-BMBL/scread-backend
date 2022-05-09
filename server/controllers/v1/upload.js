@@ -114,7 +114,7 @@ const sendEmail = function(ctx) {
     {
       from: 'scREAD <no-reply@bmbls.bmi.osumc.edu>',
       to: email,
-      bcc: 'flykun0620@gmail.com, jingjiang225@gmail.com',
+      bcc: 'flykun0620@gmail.com',
       subject: 'Information from scREAD',
       html: content
     },

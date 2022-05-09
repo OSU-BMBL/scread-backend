@@ -1,4 +1,4 @@
-import de from '@server/models/de.js'
+import de from '@server/models/v1/de.js'
 
 const getDeTable = async function(ctx) {
   const id = ctx.params.id // get id from context url

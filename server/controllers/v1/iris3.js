@@ -1,4 +1,4 @@
-import iris3 from '@server/models/iris3.js'
+import iris3 from '@server/models/v1/iris3.js'
 
 const getRegulonTable = async function(ctx) {
   const id = ctx.params.id // get id from context url

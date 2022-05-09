@@ -1,8 +1,8 @@
 import db from '@server/config/db.js'
 // the schema directory can only access from ../
-const schema = '../schema/iris3_regulon.js'
+const schema = '../../schema/scread_v1/iris3_regulon.js'
 
-const screadDb = db.scread
+const screadDb = db.screadV1
 
 // use sequelize to import table structure
 const iris3 = screadDb.import(schema)

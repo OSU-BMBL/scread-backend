@@ -1,4 +1,4 @@
-import expression from '@server/models/expression.js'
+import expression from '@server/models/v1/expression.js'
 import _ from 'lodash'
 const getExpressionTable = async function(ctx) {
   const id = ctx.params.id

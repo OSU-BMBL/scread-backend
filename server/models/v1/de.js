@@ -5,10 +5,10 @@ import cellType from './cellType'
 import dataSet from './dataset'
 
 // the schema directory can only access from ../../
-const deSchema = '../schema/de.js'
-const deMetaSchema = '../schema/de_meta.js'
+const deSchema = '../../schema/scread_v1/de.js'
+const deMetaSchema = '../../schema/scread_v1/de_meta.js'
 
-const screadDb = db.scread
+const screadDb = db.screadV1
 
 // use sequelize to import table structure
 const de = screadDb.import(deSchema)
@@ -104,11 +104,13 @@ const getControlledIds = async (id) => {
   return result
 }
 
-const getOverlapDeg = async (ctShortName,
+const getOverlapDeg = async (
+  ctShortName,
   ctLongName,
   diseaseId,
   top,
-  direction) => {
+  direction
+) => {
   const ctrlIds = await getControlledIds(diseaseId)
   const attrs = [
     'cluster',
@@ -195,7 +197,6 @@ const getOverlap = async (region, species, top, threshold, direction) => {
 
   const gene_ct_map = {}
   Object.entries(listOfGeneList).reduce((map, [ct, genes]) => {
-
     genes.reduce((map1, gene) => {
       if (gene in map1) {
         map1[gene].push(ct)

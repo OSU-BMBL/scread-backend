@@ -2,7 +2,7 @@
 
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define(
-    'dataset_v2',
+    'dataset2',
     {
       id: {
         type: DataTypes.INTEGER(11),
@@ -76,7 +76,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     {
-      tableName: 'dataset_v2'
+      tableName: 'dataset2'
     }
   )
 }

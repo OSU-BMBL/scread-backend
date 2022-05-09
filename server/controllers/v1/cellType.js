@@ -1,4 +1,4 @@
-import ct from '@server/models/cellType.js'
+import ct from '@server/models/v1/cellType.js'
 
 const getCellType = async function(ctx) {
   let id = ctx.params.id

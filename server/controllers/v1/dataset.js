@@ -1,12 +1,7 @@
-import dataset from '@server/models/dataset_v2.js'
+import dataset from '@server/models/v1/dataset.js'
 
 const getDatasetTable = async function(ctx) {
   const result = await dataset.getDatasets()
-  ctx.body = result
-}
-
-const getDatasetTable2 = async function(ctx) {
-  const result = await dataset.getDatasets2()
   ctx.body = result
 }
 
@@ -36,7 +31,6 @@ const getDataIds = async function(ctx) {
 // export methods and use in router
 export default {
   getDatasetTable,
-  getDatasetTable2,
   getDatasetById,
   getSameExperimentById,
   getDataIds,

@@ -2,9 +2,9 @@ import db from '@server/config/db.js'
 import { Op } from 'sequelize'
 import _ from 'lodash'
 // the schema directory can only access from ../
-const schema = '../schema/cell_meta.js'
+const schema = '../../schema/scread_v1/cell_meta.js'
 
-const screadDb = db.scread
+const screadDb = db.screadV1
 
 // use sequelize to import table structure
 const dimension = screadDb.import(schema)

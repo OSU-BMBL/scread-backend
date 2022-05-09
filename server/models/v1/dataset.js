@@ -1,19 +1,12 @@
 import db from '@server/config/db.js'
 // the schema directory can only access from ../
-const schema = '../schema/dataset_v2.js'
+const schema = '../../schema/scread_v1/dataset.js'
 import Sequelize from 'sequelize'
-const screadDb = db.scread
+const screadDb = db.screadV1
 // use sequelize to import table structure
 const dataset = screadDb.import(schema)
 
 const getDatasets = async function() {
-  const allDataset = await dataset.findAll({
-    order: screadDb.col('data_id')
-  })
-  return allDataset
-}
-
-const getDatasets2 = async function() {
   const allDataset = await dataset.findAll({
     order: screadDb.col('data_id')
   })

@@ -1,8 +1,8 @@
 import db from '@server/config/db.js'
 // the schema directory can only access from ../
-const schema = '../schema/publication_v2.js'
+const schema = '../../schema/scread_v1/publication.js'
 
-const screadDb = db.scread
+const screadDb = db.screadV1
 
 // use sequelize to import table structure
 const publication = screadDb.import(schema)

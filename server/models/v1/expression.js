@@ -1,8 +1,8 @@
 import db from '@server/config/db.js'
 // the schema directory can only access from ../
-const schema = '../schema/expression.js'
+const schema = '../../schema/scread_v1/expression.js'
 
-const screadDb = db.scread
+const screadDb = db.screadV1
 
 // use sequelize to import table structure
 const expression = screadDb.import(schema)

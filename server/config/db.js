@@ -1,24 +1,34 @@
-// First step: enter ./server run command:
-// sequelize-auto -o "./schema/" -d scread -h 127.0.0.1 -u cankun -p 3306 -x 19950620 -e mysql
 // DB_USER=root
 // DB_URL=127.0.0.1
-// DB_PASSWORD=19950620
-// PORT=8889
+// DB_PASSWORD=123456
+
+// First step:
+// sequelize-auto -o "./server/schema/scread_v1" -d scread_v1 -h YOUR_DB_HOST -u YOUR_USERNAME -p 3306 -x YOUR_PASSWORD -e mysql
 
 import Sequelize from 'sequelize'
 import dotenv from 'dotenv'
 dotenv.config()
-console.log(process.env.DB_URL)
-const scread = new Sequelize(
+
+const screadV2 = new Sequelize(
   `mysql://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env
-    .DB_URL || 'localhost'}/scread`,
+    .DB_URL || 'localhost'}/scread_v2`,
   {
     define: {
-      timestamps: false //stop auto adding timestamp to database
+      timestamps: false
+    }
+  }
+)
+const screadV1 = new Sequelize(
+  `mysql://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env
+    .DB_URL || 'localhost'}/scread_v1`,
+  {
+    define: {
+      timestamps: false
     }
   }
 )
 
 export default {
-  scread // export database api to Models
+  screadV2,
+  screadV1
 }
