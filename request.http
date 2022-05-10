@@ -2,6 +2,10 @@
 ### // Test API
 POST https://httpbin.org/post
 
+### // V1 home
+GET http://localhost:8889/api/scread/v1
+
+GET http://localhost:8889/api/scread/
 
 ### // Get DEG list by two comparison data IDs, cell type, comparison type
 GET http://localhost:8889/api/scread/de/AD00105?second_id=AD00103&ct=ast&type=cts

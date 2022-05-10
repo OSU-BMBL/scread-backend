@@ -4,9 +4,8 @@ import Koa from 'koa'
 import koaRouter from 'koa-router'
 import Cors from '@koa/cors'
 
+import V1Route from '@server/routes/v1/router.js'
 import ScreadRoute from '@server/routes/router.js'
-
-//import path from 'path'
 import consola from 'consola'
 
 dotenv.config()
@@ -26,7 +25,7 @@ app.on('error', function(err, ctx) {
   consola.log('%s', err)
 })
 
-router.use('/api/scread', ScreadRoute.routes())
+router.use('/api/scread/v1', V1Route.routes())
 router.use('/api/scread', ScreadRoute.routes())
 app.use(Cors())
 app.use(router.routes())
