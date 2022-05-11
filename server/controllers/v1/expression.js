@@ -24,7 +24,7 @@ const getExpressionByLine = async function(ctx) {
   const nthline = require('nthline')
   const id = ctx.params.id
   const gene = ctx.params.gene
-  const filePath = __dirname + '/../../data/' + id + '_expr.txt'
+  const filePath = __dirname + '/../../../data/' + id + '_expr.txt'
   const row = await expression.getRowById(id, gene)
   const rowNumber = row.dataValues.row
   const [geneName, ...geneCounts] = await nthline(
@@ -46,10 +46,9 @@ const getExpressionByLineMulti = async function(ctx) {
   const gene = ctx.params.gene
   const ids = ctx.params.ids.split('&')
 
-  // console.log(ids)
   const logNormalizeValues = []
   for (const id of ids) {
-    const filePath = __dirname + '/../../data/' + id + '_expr.txt'
+    const filePath = __dirname + '/../../../data/' + id + '_expr.txt'
     const row = await expression.getRowById(id, gene)
     const rowNumber = row.dataValues.row
     const [geneName, ...geneCounts] = await nthline(
