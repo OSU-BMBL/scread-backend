@@ -23,11 +23,6 @@ const getAllDimensionById = async function(id, type) {
 
   const nCells = result.length
 
-  if (nCells > 8000) {
-    const nStep = Math.floor(nCells / 5000)
-    const keepIndex = _.range(0, nCells, nStep)
-    result = keepIndex.map((i) => result[i])
-  }
   return result // return data
 }
 
