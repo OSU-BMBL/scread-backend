@@ -49,7 +49,7 @@ const getExpressionByLineMulti = async function(ctx) {
   // console.log(ids)
   const logNormalizeValues = []
   for (const id of ids) {
-    const filePath = __dirname + '/../../data/' + id + '_expr.txt'
+    const filePath = __dirname + '/../../../data/' + id + '_expr.txt'
     const row = await expression.getRowById(id, gene)
     const rowNumber = row.dataValues.row
     const [geneName, ...geneCounts] = await nthline(

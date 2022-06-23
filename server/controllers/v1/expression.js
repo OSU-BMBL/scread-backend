@@ -32,7 +32,7 @@ const getExpressionByLine = async function(ctx) {
     filePath
   ).then((line) => line.split('\t'))
   // The expression data are stored in raw counts, add log1p
-  
+
   console.log(rowNumber)
   const logNormalizeValue = [
     geneName,
